@@ -1,0 +1,37 @@
+//
+// Root styles
+//
+body,
+.body-copy {
+  font-family: $body-font;
+  font-size: 0.9375rem;
+  line-height: 1.125rem;
+  font-weight: 300;
+  font-style: normal;
+  @media (query(lg-up)) {
+    font-size: 0.9375vw;
+    line-height: 1.125vw;
+  }
+  em, i {
+    font-style: italic;
+  }
+  b {
+    font-weight: bold;
+  }
+}
+.body-header {
+  font-family: $header-font;
+  font-size: 2.8125rem;
+  line-height: 2.625rem;
+  font-weight: bold;
+  font-style: normal;
+  @media (query(lg-up)) {
+    font-size: 2.8125vw;
+    line-height: 2.625vw;
+  }
+}
+h1, h2, h3, h4, h5 {
+  font-family: $header-font;
+  font-weight: bold;
+  font-style: normal;
+}

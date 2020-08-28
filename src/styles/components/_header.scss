@@ -1,0 +1,13 @@
+.Header {
+  background-color: color('white');
+  z-index: zIndex('high');
+  &__logo {
+    width: 18.75rem;
+  }
+  &__nav {
+    &-item {
+      font-weight: 700;
+      text-transform: lowercase;
+    }
+  }
+}
