@@ -8,6 +8,7 @@ export default function Home(context) {
     <Layout preview={false}>
       <Notice />
       <Gallery />
+      <Notice data={{header: 'text callout'}} />
     </Layout>
   )
 }
