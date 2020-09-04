@@ -1,7 +1,18 @@
-export default function Notice({preview = false, data = {header: 'notice'}, className = ''}) {
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+
+export default function Notice({
+  data,
+  className = ''
+}) {
   return (
     <article className={`Notice tc pv6 bb ${className}`}>
-      <h1 className="body-header">{data.header}</h1>
+      <h1 className="Notice__header body-header">{data.fields.title}</h1>
+      <div className="Notice__description mt3">
+        {documentToReactComponents(data.fields.description)}
+      </div>
+      <div className="Notice__cta mt3">
+        {documentToReactComponents(data.fields.cta)}
+      </div>
     </article>
   );
 };

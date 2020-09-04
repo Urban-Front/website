@@ -10,13 +10,16 @@
     "setup": "node ./helpers/contentful/setup.js $CONTENTFUL_SPACE_ID $CONTENTFUL_MANAGEMENT_TOKEN"
   },
   "dependencies": {
+    "@contentful/rich-text-react-renderer": "^14.1.1",
     "classnames": "^2.2.6",
     "contentful": "^7.14.4",
     "contentful-import": "^7.7.18",
     "dotenv": "^8.2.0",
     "next": "9.4.2",
     "react": "16.13.1",
-    "react-dom": "16.13.1"
+    "react-dom": "16.13.1",
+    "react-id-swiper": "^4.0.0",
+    "swiper": "^6.1.3"
   },
   "devDependencies": {
     "@zeit/next-sass": "^1.0.1",

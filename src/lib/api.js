@@ -13,10 +13,17 @@ const previewClient = createClient({
 
 const getClient = preview => (preview ? previewClient : client)
 
-// Instead of 'data' we'd have what our content name is here
-export async function getData(preview) {
+export async function getMetaData(preview) {
   const entries = await getClient(preview).getEntries({
-    'sys.contentType.sys.id[in]': 'data',
+    'sys.contentType.sys.id[in]': 'meta',
+    include: 3
+  })
+  return entries.items[0]
+}
+
+export async function getHomeData(preview) {
+  const entries = await getClient(preview).getEntries({
+    'sys.contentType.sys.id[in]': 'homePage',
     include: 3
   })
   return entries.items[0]
