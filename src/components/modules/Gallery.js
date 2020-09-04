@@ -23,7 +23,9 @@ export default function Gallery({
     preloadImage: true
   };
   const goNext = () => {
+    console.log('we trying');
     if (swiper !== null) {
+      console.log('we should swipe');
       swiper.slideNext();
     }
   }
@@ -32,15 +34,30 @@ export default function Gallery({
       swiper.slidePrev();
     }
   }
-  console.log(data);
   return (
-    <article className={`Gallery h75 flex justify-center items-center ${className}`}>
+    <article className={`Gallery h75 relative ${className}`}>
+      <button
+        alt="before"
+        className="Gallery__arrow Gallery__arrow-prev absolute ml3"
+        onClick={goPrev}
+      >‹</button>
+      <button
+        alt="next"
+        className="Gallery__arrow Gallery__arrow-next absolute mr3"
+        onClick={goNext}
+      >›</button>
       <div className="swiper-outer flex">
-        <Swiper {...params} getSwiper={setSwiper}></Swiper>
+        <Swiper {...params} getSwiper={setSwiper}>
           {data.fields.galleryItems.map((item, index) => {
             return (
-              <div key={index} className="swiper-slide flex justify-end items-center">
-                <section className="Gallery__text tr mh3">
+              <div
+                key={index}
+                className="swiper-slide flex justify-end items-center"
+                style={{
+                  backgroundColor: `${item.fields.color}`
+                }}
+              >
+                <section className="Gallery__text tr mh7">
                   <h3 className="Gallery__title body-header">
                     {item.fields.title}
                   </h3>
@@ -58,6 +75,7 @@ export default function Gallery({
               </div>
             )
           })}
+        </Swiper>
       </div>
     </article>
   );

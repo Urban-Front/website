@@ -28,6 +28,7 @@ const prodConfig = withPlugins(
       ],
       purgeCss: {
         whitelist: () => [
+          'a',
           'swiper',
           'swiper-container',
           'swiper-container-fade',
