@@ -39,7 +39,7 @@ export default function Layout({
         <link rel="stylesheet" href="https://use.typekit.net/azm8zbm.css" />
       </Head>
       <div className={`Body ${className}`}>
-        <Header />
+        <Header preview={preview} />
         <main className="Main">
           {children}
         </main>

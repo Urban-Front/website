@@ -26,13 +26,13 @@ export default function Home(context) {
         <Notice data={data.textCallout} />
       )}
       {(data.featuredArticles || data.featuredEvent) && (
-        <div className="bt flex justify-between">
+        <div className="bt flex flex-column flex-row-lg justify-between">
           {data.featuredArticles && (
             <FeaturedArticles
               data={data.featuredArticles}
               className={classnames({
-                'w-100 pv3 pv5-lg': !data.featuredEvent,
-                'w-100 w-60-lg br-lg pv3 pv5-lg': data.featuredEvent
+                'w-100 pv5': !data.featuredEvent,
+                'w-100 w-60-lg br-lg pt5 pb3 pb5-lg': data.featuredEvent
               })}
             />
           )}
@@ -40,8 +40,8 @@ export default function Home(context) {
             <FeaturedEvent
               data={data.featuredEvent}
               className={classnames({
-                'w-100 pv3 pv5-lg': !data.featuredArticles,
-                'w-100 pv3 w-40-lg pv5-lg': data.featuredArticles
+                'w-100 pv5': !data.featuredArticles,
+                'w-100 w-40-lg pt3 pb5 pv5-lg': data.featuredArticles
               })}
             />
           )}
