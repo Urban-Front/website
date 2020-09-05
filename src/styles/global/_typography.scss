@@ -5,12 +5,12 @@ body,
 .body-copy {
   font-family: $body-font;
   font-size: 1rem;
-  line-height: 1.125rem;
+  line-height: 1.5rem;
   font-weight: 300;
   font-style: normal;
   @media (query(lg-up)) {
     font-size: 1.25vw;
-    line-height: 1.5vw;
+    line-height: 1.75vw;
   }
   em, i {
     font-style: italic;

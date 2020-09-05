@@ -3,6 +3,7 @@ import React, { useRef, useState } from 'react';
 // The modules
 import Swiper from 'react-id-swiper';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import classnames from 'classnames';
 
 export default function Gallery({
   data,
@@ -11,6 +12,7 @@ export default function Gallery({
   const buttonPrev = useRef(null);
   const buttonNext = useRef(null);
   const [swiper, setSwiper] = useState(null);
+  const positionClasses = ['top left', 'bottom left', 'top right', 'bottom right', 'center left', 'center right'];
   const params = {
     slidesPerView: 1,
     spaceBetween: 0,
@@ -23,9 +25,7 @@ export default function Gallery({
     preloadImage: true
   };
   const goNext = () => {
-    console.log('we trying');
     if (swiper !== null) {
-      console.log('we should swipe');
       swiper.slideNext();
     }
   }
@@ -49,15 +49,23 @@ export default function Gallery({
       <div className="swiper-outer flex">
         <Swiper {...params} getSwiper={setSwiper}>
           {data.fields.galleryItems.map((item, index) => {
+            const position = positionClasses[index % positionClasses.length];
             return (
               <div
                 key={index}
-                className="swiper-slide flex justify-end items-center"
+                className={classnames('swiper-slide flex', {
+                  'justify-start items-start tl': position === 'top left',
+                  'justify-start items-end tl': position === 'bottom left',
+                  'justify-end items-start tr': position === 'top right',
+                  'justify-end items-end tr': position === 'bottom right',
+                  'justify-start items-center tl': position === 'center left',
+                  'justify-end items-start tr': position === 'center right'
+                })}
                 style={{
                   backgroundColor: `${item.fields.color}`
                 }}
               >
-                <section className="Gallery__text tr mh7">
+                <section className="Gallery__text ma5 ma7-lg">
                   <h3 className="Gallery__title body-header">
                     {item.fields.title}
                   </h3>

@@ -15,25 +15,33 @@
     overflow: hidden;
   }
   &__text {
-    width: 33vw;
+    width: 100vw;
     z-index: 1;
+    @media (query(lg-up)) {
+      width: 33vw;
+    }
   }
   &__title {
     display: inline;
     background-color: rgba(0, 0, 0, 0.75);
-    line-height: 1.75;
+    line-height: 1.5;
+    padding: 0 0.2vw;
   }
   &__description {
     p {
       display: inline;
       background-color: rgba(0, 0, 0, 0.75);
       line-height: 1.5;
+      padding: 0 0.2vw;
     }
   }
   &__cta {
     a {
+      padding: 0 0.2vw;
       color: white;
-      border-color: white;
+      background-color: rgba(0, 0, 0, 0.75);
+      border: none;
+      text-decoration: underline;
     }
   }
   &__image {
@@ -51,9 +59,14 @@
     background-color: rgba(0, 0, 0, 0.75);
     color: white;
     z-index: 100;
-    font-size: 6vw;
+    font-size: 3rem;
     line-height: 1;
-    padding: 0 1vw 0.5vw 1vw;
+    padding: 0 1vw 0.5rem 1rem;
+    opacity: 0.4;
+    @include standard-transition(opacity);
+    &:hover {
+      opacity: 1;
+    }
     &-prev {
       left: 0;
     }
