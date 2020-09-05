@@ -10,5 +10,13 @@
       text-transform: lowercase;
       border-bottom: none;
     }
+    &-link {
+      border-bottom: none;
+      color: color('black');
+      @include standard-transition(color);
+      &:hover {
+        color: color('red');
+      }
+    }
   }
 }

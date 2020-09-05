@@ -14,27 +14,27 @@ export default function Header({preview = false}) {
         <ul className="Header__nav flex flex-column flex-row-md">
           <li className="Header__nav-item dib mr3">
             <Link href={`/about${preview ? '?preview=true' : ''}`}>
-              <a title="About">About</a>
+              <a title="About" className="Header__nav-link">About</a>
             </Link>
           </li>
           <li className="Header__nav-item dib mr3">
             <Link href={`/team${preview ? '?preview=true' : ''}`}>
-              <a title="Team">Team</a>
+              <a title="Team" className="Header__nav-link">Team</a>
             </Link>
           </li>
           <li className="Header__nav-item dib mr3">
             <Link href={`/voices${preview ? '?preview=true' : ''}`}>
-              <a title="Voices">Voices</a>
+              <a title="Voices" className="Header__nav-link">Voices</a>
             </Link>
           </li>
           <li className="Header__nav-item dib mr3">
             <Link href={`/events${preview ? '?preview=true' : ''}`}>
-              <a title="Events">Events</a>
+              <a title="Events" className="Header__nav-link">Events</a>
             </Link>
           </li>
           <li className="Header__nav-item dib">
             <Link href={`/contact${preview ? '?preview=true' : ''}`}>
-              <a title="Contact">Contact</a>
+              <a title="Contact" className="Header__nav-link">Contact</a>
             </Link>
           </li>
         </ul>
