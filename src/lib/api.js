@@ -28,3 +28,11 @@ export async function getHomeData(preview) {
   })
   return entries.items[0]
 }
+
+export async function getServicesData(preview) {
+  const entries = await getClient(preview).getEntries({
+    'sys.contentType.sys.id[in]': 'servicesPage',
+    include: 3
+  })
+  return entries.items[0]
+}
