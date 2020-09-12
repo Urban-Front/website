@@ -14,7 +14,7 @@ export default function FeaturedArticles({
           <section key={index} className="FeaturedArticle flex flex-column flex-row-md justify-between">
             {item.fields.image && (
               <figure className="w-100 w-25-md mb3 mb0-md mr0 mr3-md">
-                <img src={`${item.fields.image.fields.file.url}?fm=jpg&q=70`} />
+                <img src={`${item.fields.image.fields.file.url}?w=320&fm=jpg&q=70`} />
               </figure>
             )}
             <div className={classnames('w-100', {

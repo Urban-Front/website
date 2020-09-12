@@ -21,6 +21,21 @@ body,
 }
 .body-copy {
   font-family: $serif-font;
+  @media (query(lg-up)) {
+    font-size: 1.25vw;
+    line-height: 2vw;
+  }
+  p + p {
+    margin-top: 1rem;
+  }
+  blockquote {
+    font-weight: 700;
+    margin: 2rem 0;
+    padding: 1rem 0;
+    border-top: 1px solid color('black');
+    border-bottom: 1px solid color('black');
+    width: 80%;
+  }
 }
 .body-header {
   font-family: $header-font;

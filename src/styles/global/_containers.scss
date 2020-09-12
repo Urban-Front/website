@@ -6,6 +6,9 @@
 	max-width: 100rem;
 	margin-left: auto;
 	margin-right: auto;
+  &__medium {
+    width: 48rem;
+  }
   &__thin {
     width: 38rem;
   }
