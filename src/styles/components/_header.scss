@@ -1,6 +1,9 @@
 .Header {
-  background-color: color('white');
+  background-color: transparent;
   z-index: zIndex('high');
+  top: 0;
+  left: 0;
+  width: 100%;
   &__logo {
     width: 18.75rem;
   }

@@ -5,6 +5,7 @@ import Footer from 'components/site/Footer';
 
 export default function Layout({
   className = '',
+  headerClassName = '',
   preview = false,
   children
 }) {
@@ -39,7 +40,7 @@ export default function Layout({
         <link rel="stylesheet" href="https://use.typekit.net/azm8zbm.css" />
       </Head>
       <div className={`Body ${className}`}>
-        <Header preview={preview} />
+        <Header preview={preview} className={headerClassName} />
         <main className="Main">
           {children}
         </main>

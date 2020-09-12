@@ -15,10 +15,10 @@ export default function Home(context) {
   const [data, setData] = useState(context.homeData.fields);
   getPreviewData(getHomeData, setData, setPreview);
   return (
-    <Layout preview={preview}>
-      {data.notice && (
-        <Notice data={data.notice} />
-      )}
+    <Layout preview={preview} className="Home" headerClassName="absolute">
+      {/* {data.notice && ( */}
+      {/*   <Notice data={data.notice} /> */}
+      {/* )} */}
       {data.gallery && (
         <Gallery data={data.gallery} />
       )}

@@ -1,8 +1,8 @@
 import Link from 'next/link';
 
-export default function Header({preview = false}) {
+export default function Header({preview = false, className = ''}) {
   return (
-    <header className="Header bb w-100">
+    <header className={`Header w-100 ${className}`}>
       <article className="Container flex items-center justify-between">
         <section className="Header__logo">
           <Link href={`/${preview ? '?preview=true' : ''}`}>

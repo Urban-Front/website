@@ -11,6 +11,8 @@ export default function Gallery({
 }) {
   const buttonPrev = useRef(null);
   const buttonNext = useRef(null);
+  const gallery = useRef(null);
+  const [color, setColor] = useState('blue');
   const [swiper, setSwiper] = useState(null);
   const positionClasses = ['top left', 'bottom left', 'top right', 'bottom right', 'center left', 'center right'];
   const params = {
@@ -21,6 +23,11 @@ export default function Gallery({
     simulateTouch: false,
     keyboard: {
       enabled: true
+    },
+    on: {
+      slideChange: function() {
+        setColor(this.slides[this.activeIndex].getAttribute('datacolor'));
+      }
     },
     preloadImage: true
   };
@@ -35,7 +42,7 @@ export default function Gallery({
     }
   }
   return (
-    <article className={`Gallery h75 relative ${className}`}>
+    <article className={`Gallery h75 relative ${className} ${color}`} ref={gallery}>
       <button
         alt="before"
         className="Gallery__arrow Gallery__arrow-prev absolute ml3"
@@ -49,11 +56,13 @@ export default function Gallery({
       <div className="swiper-outer flex">
         <Swiper {...params} getSwiper={setSwiper}>
           {data.fields.galleryItems.map((item, index) => {
+            console.log(item);
             const position = positionClasses[index % positionClasses.length];
             return (
               <div
                 key={index}
-                className={classnames('swiper-slide flex', {
+                datacolor={item.fields.colorPicker[0]}
+                className={classnames(`swiper-slide flex ${item.fields.colorPicker[0]}`, {
                   'justify-start items-start tl': position === 'top left',
                   'justify-start items-end tl': position === 'bottom left',
                   'justify-end items-start tr': position === 'top right',
@@ -61,9 +70,6 @@ export default function Gallery({
                   'justify-start items-center tl': position === 'center left',
                   'justify-end items-start tr': position === 'center right'
                 })}
-                style={{
-                  backgroundColor: `${item.fields.color}`
-                }}
               >
                 <section className="Gallery__text ma5 ma7-lg">
                   <h3 className="Gallery__title body-header">

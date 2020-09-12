@@ -1,2 +1,15 @@
 .Home {
+  .Gallery {
+    min-height: 37.25rem;
+    @media (query(lg-up)) {
+      min-height: 57rem;
+      height: calc(75vh + 13.25rem);
+    }
+    .swiper-slide {
+      padding-top: 13.25rem;
+    }
+    &__image {
+      transform: translate(-50%, calc(-50% + 6.125rem));
+    }
+  }
 }
