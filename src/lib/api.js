@@ -29,6 +29,23 @@ export async function getHomeData(preview) {
   return entries.items[0]
 }
 
+export async function getArticles(preview) {
+  const entries = await getClient(preview).getEntries({
+    'sys.contentType.sys.id[in]': 'article',
+    include: 3
+  })
+  return entries.items
+}
+
+export async function getArticleBySlug(preview, slug) {
+  const entries = await getClient(preview).getEntries({
+    content_type: 'article',
+    limit: 1,
+    'fields.slug[in]': slug
+  })
+  return entries.items[0]
+}
+
 export async function getServicesData(preview) {
   const entries = await getClient(preview).getEntries({
     'sys.contentType.sys.id[in]': 'servicesPage',

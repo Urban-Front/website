@@ -56,7 +56,6 @@ export default function Gallery({
       <div className="swiper-outer flex">
         <Swiper {...params} getSwiper={setSwiper}>
           {data.fields.galleryItems.map((item, index) => {
-            console.log(item);
             const position = positionClasses[index % positionClasses.length];
             return (
               <div

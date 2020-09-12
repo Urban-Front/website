@@ -1,25 +1,31 @@
 import { useState } from 'react';
 // The data
-import { getHomeData } from 'lib/api';
+import { getArticles } from 'lib/api';
 import getPreviewData from 'lib/preview';
 // The modules
 import classnames from 'classnames';
 import Layout from 'components/Layout';
+import FeaturedArticles from 'components/modules/FeaturedArticles';
 
 export default function Voices(context) {
   const [preview, setPreview] = useState(false);
-  const [data, setData] = useState(context.homeData.fields);
-  getPreviewData(getHomeData, setData, setPreview);
+  const [data, setData] = useState(context.articles);
+  getPreviewData(getArticles, setData, setPreview, false);
+  console.log(data);
   return (
     <Layout preview={preview}>
       <h1 className="body-header">Voices</h1>
+      <FeaturedArticles
+        data={data}
+        className="w-100"
+      />
     </Layout>
   )
 }
 
 export async function getStaticProps(context) {
-  const homeData = await getHomeData(false);
+  const articles = await getArticles(false);
   return {
-    props: {homeData}
+    props: {articles}
   }
 }

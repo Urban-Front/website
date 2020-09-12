@@ -7,7 +7,7 @@ export default function Header({preview = false, className = ''}) {
         <section className="Header__logo">
           <Link href={`/${preview ? '?preview=true' : ''}`}>
             <a title="Home">
-              <img className="Header__logo-image db" src="images/uf_logo.png" alt="" />
+              <img className="Header__logo-image db" src="/images/uf_logo.png" alt="" />
             </a>
           </Link>
         </section>

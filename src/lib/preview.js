@@ -6,7 +6,7 @@ import { useEffect } from 'react';
  * @param  {function} setData     Set the data function
  * @param  {function} setPreview  Set the preview function
  */
-export default function getPreviewData(apiCall, setData, setPreview) {
+export default function getPreviewData(apiCall, setData, setPreview, getFields = true) {
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     const preview = params.get('preview');
@@ -19,7 +19,8 @@ export default function getPreviewData(apiCall, setData, setPreview) {
       }
       newPropsCall().then(returnData => {
         if (returnData) {
-          setData(returnData.props.dataPreview.fields);
+          const data = getFields ? returnData.props.dataPreview.fields : returnData.props.dataPreview;
+          setData(data);
           setPreview(true);
         }
       });

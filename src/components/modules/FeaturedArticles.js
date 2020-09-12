@@ -1,5 +1,6 @@
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import classnames from 'classnames';
+import Link from 'next/link';
 
 export default function FeaturedArticles({
   data,
@@ -21,7 +22,9 @@ export default function FeaturedArticles({
             })}>
               <h3 className="FeaturedArticle__title">{item.fields.title}</h3>
               <p className="FeaturedArticle__snippet mt3">{item.fields.snippet}</p>
-              <a href="#" className="dib mt3">Read More →</a>
+              <Link as={`/voices/${item.fields.slug}`} href="/voices/[slug]">
+                <a className="dib mt3">Read More →</a>
+              </Link>
             </div>
           </section>
         )
