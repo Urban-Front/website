@@ -3,10 +3,10 @@
   color: white;
   transition: background-color 0.6s ease;
   &.blue {
-    background-color: darken(color('blue'), 15%);
+    background-color: darken(color('blue'), 5%);
   }
   &.red {
-    background-color: darken(color('red'), 15%);
+    background-color: darken(color('red'), 5%);
   }
   &.green {
     background-color: #0FA;
