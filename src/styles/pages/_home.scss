@@ -2,8 +2,8 @@
   .Gallery {
     min-height: 37.25rem;
     @media (query(lg-up)) {
-      min-height: 57rem;
-      height: calc(75vh + 13.25rem);
+      min-height: 50rem;
+      height: 100vh;
     }
     .swiper-slide {
       padding-top: 13.25rem;
