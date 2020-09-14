@@ -13,7 +13,7 @@ export default function Voices(context) {
   getPreviewData(getArticleBySlug, setData, setPreview);
   return (
     <Layout preview={preview}>
-      <article className="Container mv4">
+      <article className="Container mt4 mb7">
         <img src={`${data.image.fields.file.url}?w=2048&fm=jpg&fl=progressive&q=70`} alt={data.image.fields.file.title} className="db mha" />
         <section className="Container Container__medium Voices__head pb4">
           <h3 className="Voices__header body-header mt6">{data.title}</h3>
