@@ -14,75 +14,75 @@
      -xxl = extra extra large (1920 up)
 */
 
-.h100 {
+.h-100 {
   height: 100vh;
 }
-.h75 {
+.h-75 {
   height: 75vh;
 }
-.h50 {
+.h-50 {
   height: 50vh;
 }
-.ha {
+.h-a {
   height: auto;
 }
 
 @media (query(md-up)) {
-  .h100-md {
+  .h-100-md {
     height: 100vh;
   }
-  .h75-md {
+  .h-75-md {
     height: 75vh;
   }
-  .h50-md {
+  .h-50-md {
     height: 50vh;
   }
-  .ha-md {
+  .h-a-md {
     height: auto;
   }
 }
 
 @media (query(lg-up)) {
-  .h100-lg {
+  .h-100-lg {
     height: 100vh;
   }
-  .h75-lg {
+  .h-75-lg {
     height: 75vh;
   }
-  .h50-lg {
+  .h-50-lg {
     height: 50vh;
   }
-  .ha-lg {
+  .h-a-lg {
     height: auto;
   }
 }
 
 @media (query(xl-up)) {
-  .h100-xl {
+  .h-100-xl {
     height: 100vh;
   }
-  .h75-xl {
+  .h-75-xl {
     height: 75vh;
   }
-  .h50-xl {
+  .h-50-xl {
     height: 50vh;
   }
-  .ha-xl {
+  .h-a-xl {
     height: auto;
   }
 }
 
 @media (query(xxl-up)) {
-  .h100-xxl {
+  .h-100-xxl {
     height: 100vh;
   }
-  .h75-xxl {
+  .h-75-xxl {
     height: 75vh;
   }
-  .h50-xxl {
+  .h-50-xxl {
     height: 50vh;
   }
-  .ha-xxl {
+  .h-a-xxl {
     height: auto;
   }
 }

@@ -1,15 +1,15 @@
 .Home {
   .Gallery {
     min-height: 37.25rem;
+    height: 100vh;
     @media (query(lg-up)) {
       min-height: 50rem;
-      height: 100vh;
     }
     .swiper-slide {
-      padding-top: 13.25rem;
+      padding-top: $header-height;
     }
     &__image {
-      transform: translate(-50%, calc(-50% + 6.125rem));
+      transform: translate(-50%, calc(-50% + 5rem));
     }
   }
 }

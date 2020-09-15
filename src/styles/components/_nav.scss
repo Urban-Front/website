@@ -1,0 +1,33 @@
+.Nav {
+  background-color: color('white');
+  z-index: 101;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  opacity: 0;
+  @include standard-transition(opacity);
+  &--open {
+    opacity: 1;
+    pointer-events: all;
+  }
+  &__nav-link {
+    text-decoration: none;
+    border-bottom: none;
+    font-size: 3rem;
+    line-height: 1;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: color('red');
+    -webkit-text-fill-color: transparent; /* Will override color (regardless of order) */
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: color('red');
+    @media (query(lg-up)) {
+      font-size: 5vw;
+      line-height: 1;
+      -webkit-text-stroke-width: 0.125vw;
+    }
+    &:hover {
+      -webkit-text-fill-color: color('red');
+    }
+  }
+}
