@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Nav from 'components/site/Nav';
 import ScrollLockComponent from 'components/utils/scrollLockComponent';
+import classnames from 'classnames';
 
 export default function Header({preview = false, className = ''}) {
   const [burgerState, setBurgerState] = useState(false);
@@ -31,9 +32,15 @@ export default function Header({preview = false, className = ''}) {
           </section>
           <section className="Header__hamburger">
             <button
-              className="Header__hamburger-button"
+              className={classnames("Header__hamburger-button", {
+                active: burgerState
+              })}
               onClick={() => {setBurgerState(!burgerState)}}
-            >Menu</button>
+            >
+              <span className="top"></span>
+              <span className="middle"></span>
+              <span className="bottom"></span>
+            </button>
           </section>
         </article>
       </header>
