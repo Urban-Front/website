@@ -8,6 +8,11 @@ export default function Nav({preview = false, toggleNav, setToggle}) {
     })}>
       <ul className="Container h-100 pv4 pv6-lg flex flex-column items-center justify-center">
         <li className="Nav__nav-item dib mr3">
+          <Link href={`/${preview ? '?preview=true' : ''}`}>
+            <a title="Home" className="Nav__nav-link">Home</a>
+          </Link>
+        </li>
+        <li className="Nav__nav-item dib mr3">
           <Link href={`/about${preview ? '?preview=true' : ''}`}>
             <a title="About" className="Nav__nav-link">About</a>
           </Link>

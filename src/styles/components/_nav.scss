@@ -22,9 +22,9 @@
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: color('red');
     @media (query(lg-up)) {
-      font-size: 5vw;
+      font-size: 12vh;
       line-height: 1;
-      -webkit-text-stroke-width: 0.125vw;
+      -webkit-text-stroke-width: 0.325vh;
     }
     &:hover {
       -webkit-text-fill-color: color('red');

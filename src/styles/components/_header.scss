@@ -6,7 +6,7 @@
   &__logo {
     z-index: zIndex('high');
     // width: 18.75rem;
-    width: 15rem;
+    width: 17.5416666666875rem;
   }
   &__hamburger {
     z-index: zIndex('high');
@@ -16,6 +16,7 @@
       position: relative;
       transition: all 0.3s ease;
       &.active {
+        transform: translateX(1rem);
         .middle {
           opacity: 0;
         }
@@ -31,16 +32,17 @@
       .bottom {
         transition: all 0.3s ease;
         width: 100%;
-        height: 0.0125rem;
-        background-color: color('black');
+        height: 0;
+        border-top: 1px solid color('black');
         position: absolute;
+        opacity: 1;
       }
       .top {
         top: 1px;
         left: 0;
       }
       .middle {
-        top: 50%;
+        top: 50.05%;
         left: 0;
         opacity: 1;
       }
