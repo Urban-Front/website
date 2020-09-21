@@ -16,6 +16,19 @@
       opacity: 1;
     }
   }
+  &__overlay {
+    top: 0;
+    left: 0;
+    opacity: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 101;
+    pointer-events: none;
+    @include standard-transition(opacity, 0.6s);
+    &.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+  }
   &__nav-item {
     transform: translateX(100%);
     opacity: 0;
