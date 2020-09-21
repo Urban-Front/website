@@ -3,10 +3,10 @@ import classnames from 'classnames';
 
 export default function Nav({preview = false, toggleNav, setToggle}) {
   return (
-    <nav className={classnames(`Nav w-100 h-100 fixed`, {
+    <nav className={classnames(`Nav w-50 h-100 fixed`, {
       'Nav--open': toggleNav
     })}>
-      <ul className="Container h-100 pv4 pv6-lg flex flex-column items-center justify-center">
+      <ul className="Container Container__fluid h-100 pv4 pv6-lg flex flex-column items-center justify-center">
         <li className="Nav__nav-item dib mr3">
           <Link href={`/${preview ? '?preview=true' : ''}`}>
             <a title="Home" className="Nav__nav-link">Home</a>

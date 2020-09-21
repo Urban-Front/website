@@ -2,13 +2,29 @@
   background-color: color('white');
   z-index: 101;
   top: 0;
-  left: 0;
+  right: 0;
   pointer-events: none;
-  opacity: 0;
-  @include standard-transition(opacity);
+  opacity: 1;
+  transform: translateX(100%);
+  @include standard-transition(all, 0.6s);
   &--open {
     opacity: 1;
+    transform: translateX(0);
     pointer-events: all;
+    .Nav__nav-item {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  &__nav-item {
+    transform: translateX(100%);
+    opacity: 0;
+    @include standard-transition(all, 0.6s);
+    @for $i from 1 through 7 {
+      &:nth-child(#{$i}) {
+        transition-delay: $i * 0.05s;
+      }
+    }
   }
   &__nav-link {
     text-decoration: none;

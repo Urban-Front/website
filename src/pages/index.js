@@ -23,10 +23,10 @@ export default function Home(context) {
         <Gallery data={data.gallery} />
       )}
       {data.textCallout && (
-        <Notice data={data.textCallout} />
+        <Notice className="h-100" data={data.textCallout} />
       )}
       {(data.featuredArticles || data.featuredEvent) && (
-        <div className="bt flex flex-column flex-row-lg justify-between">
+        <div className="bt h-100 flex flex-column flex-row-lg justify-between">
           {data.featuredArticles && (
             <FeaturedArticles
               data={data.featuredArticles}
@@ -39,7 +39,7 @@ export default function Home(context) {
           {data.featuredEvent && (
             <FeaturedEvent
               data={data.featuredEvent}
-              className={classnames({
+              className={classnames('h-100', {
                 'w-100 pv5': !data.featuredArticles,
                 'w-100 w-40-lg pt3 pb5 pv5-lg': data.featuredArticles
               })}
