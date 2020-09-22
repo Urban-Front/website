@@ -78,7 +78,7 @@
         -webkit-text-stroke-width: 1px;
         -webkit-text-stroke-color: color('red');
         @media (query(lg-up)) {
-          font-size: 12vh;
+          font-size: calc(3vh + 6vw);
           line-height: 1;
           -webkit-text-stroke-width: 0.325vh;
         }
