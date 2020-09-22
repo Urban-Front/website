@@ -32,7 +32,7 @@ export default function Team(context) {
             }}>
             <figure className="Person__image"></figure>
             <h3 className="Person__name body-header mt3">Person Name</h3>
-            <p className="Person__description mt3">Uneven Geographical Development</p>
+            <p className="Person__description mt3">Ut rhoncus magna vel vestibulum efficitur</p>
           </a>
         </section>
         <section className="Person w-100 w-50-md w-third-lg">
@@ -45,7 +45,7 @@ export default function Team(context) {
             }}>
             <figure className="Person__image"></figure>
             <h3 className="Person__name body-header mt3">Person Name</h3>
-            <p className="Person__description mt3">Uneven Geographical Development</p>
+            <p className="Person__description mt3">Ut rhoncus magna vel vestibulum efficitur</p>
           </a>
         </section>
         <section className="Person w-100 w-50-md w-third-lg">
@@ -58,7 +58,7 @@ export default function Team(context) {
             }}>
             <figure className="Person__image"></figure>
             <h3 className="Person__name body-header mt3">Person Name</h3>
-            <p className="Person__description mt3">Uneven Geographical Development</p>
+            <p className="Person__description mt3">Ut rhoncus magna vel vestibulum efficitur</p>
           </a>
         </section>
         <section className="Person w-100 w-50-md w-third-lg">
@@ -71,7 +71,7 @@ export default function Team(context) {
             }}>
             <figure className="Person__image"></figure>
             <h3 className="Person__name body-header mt3">Person Name</h3>
-            <p className="Person__description mt3">Uneven Geographical Development</p>
+            <p className="Person__description mt3">Ut rhoncus magna vel vestibulum efficitur</p>
           </a>
         </section>
         <section className="Person w-100 w-50-md w-third-lg">
@@ -84,7 +84,7 @@ export default function Team(context) {
             }}>
             <figure className="Person__image"></figure>
             <h3 className="Person__name body-header mt3">Person Name</h3>
-            <p className="Person__description mt3">Uneven Geographical Development</p>
+            <p className="Person__description mt3">Ut rhoncus magna vel vestibulum efficitur</p>
           </a>
         </section>
       </article>
@@ -100,9 +100,9 @@ export default function Team(context) {
             <span className="right"></span>
           </button>
           <h3 className="Person__name body-header">Person Name</h3>
-          <p className="Person__description mt3">Unitary Urban Strategy and Tactics</p>
-          <p className="Person__sub-description mt3">Urban political ecology, complex urban systems, non-speculative property systems, transdisciplinary coordination, socio-spatial justice, alternative economies</p>
-          <p className="Person__paragraph body-copy mt3">Robles-Durán (Mexico / NY, USA) is an Urbanist with expertise in the design and analysis of complex urban systems and urban political-ecology. He is an Associate Professor of Urbanism at The New School / Parsons, New York and co-founder of Cohabitation Strategies, a globally recognized non-profit cooperative for socio-spatial development. He also was co-founder and co-director with David Harvey of the National Center for the Right to the Territory (CENEDET) in Ecuador. Robles-Duran is a current fellow at the Center for Urban Research on Austerity in Leicester, UK. His work has been exhibited in numerous venues around the world, including the Venice Biennale of Architecture, the Istanbul Design Biennial, the Shenzhen Biennial, and the MoMA in NYC.</p>
+          <p className="Person__description mt3">Ut rhoncus magna vel vestibulum efficitur.</p>
+          <p className="Person__sub-description mt3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sed malesuada nulla. Cras mollis orci dolor, facilisis elementum eros sagittis at.</p>
+          <p className="Person__paragraph body-copy mt3">Maecenas eu nisi nec diam vestibulum cursus. Nullam tempus ac eros a scelerisque. Cras vitae neque in erat feugiat molestie eget sit amet elit. Pellentesque nunc odio, laoreet in arcu quis, ullamcorper pharetra velit. Duis fermentum, ligula non pellentesque convallis, sapien ligula sagittis sem, sed laoreet dolor sapien et tellus. Praesent ac lacus ultricies nulla tincidunt molestie sed luctus erat. Cras eget pretium dolor, id ullamcorper augue. Aenean a sollicitudin libero, eget ultricies libero. Mauris condimentum tortor lacus, a molestie lacus malesuada eget. Ut at lectus sapien. Phasellus sed fermentum elit, ut tempor nibh. Suspendisse ornare ut ex id lobortis. Phasellus sit amet mattis nulla. Morbi egestas velit nisi, sed fermentum massa mattis in. In id enim in nisl volutpat molestie a id lorem.</p>
         </div>
       </article>
       {modalOpen && <ScrollLockComponent />}
