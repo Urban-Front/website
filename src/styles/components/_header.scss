@@ -5,11 +5,13 @@
   width: 100%;
   &__logo {
     z-index: zIndex('high');
-    // width: 18.75rem;
-    width: 17.5416666666875rem;
+    width: 15.0rem;
+    margin-top: 1rem;
   }
   &__hamburger {
     z-index: zIndex('high');
+    top: 4.6rem;
+    right: 1rem;
     &-button {
       width: 3rem;
       height: 1.8rem;
@@ -33,7 +35,7 @@
         transition: all 0.3s ease;
         width: 100%;
         height: 0;
-        border-top: 1px solid color('black');
+        border-top: 0.125rem solid color('black');
         position: absolute;
         opacity: 1;
       }

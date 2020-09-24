@@ -26,11 +26,11 @@ export default function Header({preview = false, className = ''}) {
           <section className="Header__logo">
             <Link href={`/${preview ? '?preview=true' : ''}`}>
               <a title="Home">
-                <img className="Header__logo-image db" src="/images/uf_logo.png" alt="" />
+                <img className="Header__logo-image db" src="/images/uf_logo_alt.png" alt="" />
               </a>
             </Link>
           </section>
-          <section className="Header__hamburger">
+          <section className="Header__hamburger fixed">
             <button
               className={classnames("Header__hamburger-button", {
                 active: burgerState

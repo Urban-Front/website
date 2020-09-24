@@ -21,6 +21,10 @@ export default function Gallery({
     speed: 600,
     loop: true,
     simulateTouch: false,
+    initialSlide: Math.floor(Math.random() * data.fields.galleryItems.length),
+    autoplay: {
+      delay: 10000,
+    },
     keyboard: {
       enabled: true
     },
@@ -31,28 +35,8 @@ export default function Gallery({
     },
     preloadImage: true
   };
-  const goNext = () => {
-    if (swiper !== null) {
-      swiper.slideNext();
-    }
-  }
-  const goPrev = () => {
-    if (swiper !== null) {
-      swiper.slidePrev();
-    }
-  }
   return (
     <article className={`Gallery h75 relative ${className} ${color}`} ref={gallery}>
-      <button
-        alt="before"
-        className="Gallery__arrow Gallery__arrow-prev absolute ml3"
-        onClick={goPrev}
-      >‹</button>
-      <button
-        alt="next"
-        className="Gallery__arrow Gallery__arrow-next absolute mr3"
-        onClick={goNext}
-      >›</button>
       <div className="swiper-outer flex">
         <Swiper {...params} getSwiper={setSwiper}>
           {data.fields.galleryItems.map((item, index) => {
