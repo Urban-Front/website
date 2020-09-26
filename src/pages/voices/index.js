@@ -11,7 +11,6 @@ export default function Voices(context) {
   const [preview, setPreview] = useState(false);
   const [data, setData] = useState(context.articles);
   getPreviewData(getArticles, setData, setPreview, false);
-  console.log(data);
   return (
     <Layout preview={preview}>
       <h1 className="body-header">Voices</h1>

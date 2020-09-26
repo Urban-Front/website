@@ -9,8 +9,6 @@ export default function Gallery({
   data,
   className = ''
 }) {
-  const buttonPrev = useRef(null);
-  const buttonNext = useRef(null);
   const gallery = useRef(null);
   const [color, setColor] = useState('blue');
   const [swiper, setSwiper] = useState(null);
@@ -36,7 +34,7 @@ export default function Gallery({
     preloadImage: true
   };
   return (
-    <article className={`Gallery h75 relative ${className} ${color}`} ref={gallery}>
+    <article className={`Gallery h-100 relative ${className} ${color}`} ref={gallery}>
       <div className="swiper-outer flex">
         <Swiper {...params} getSwiper={setSwiper}>
           {data.fields.galleryItems.map((item, index) => {
