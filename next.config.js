@@ -45,6 +45,7 @@ const prodConfig = withPlugins(
           'swiper-container-fade',
           'swiper-container-initialized',
           'swiper-container-horizontal',
+          'swiper-container-vertical',
           'swiper-wrapper',
           'swiper-slide',
           'swiper-slide-duplicate',
