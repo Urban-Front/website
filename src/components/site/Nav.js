@@ -20,8 +20,8 @@ export default function Nav({preview = false, toggleNav, setToggle}) {
             </Link>
           </li>
           <li className="Nav__nav-item db w-100">
-            <Link href={`/about${preview ? '?preview=true' : ''}`}>
-              <a title="About" className="Nav__nav-link">About</a>
+            <Link href={`/services${preview ? '?preview=true' : ''}`}>
+              <a title="Services" className="Nav__nav-link">Services</a>
             </Link>
           </li>
           <li className="Nav__nav-item db w-100">

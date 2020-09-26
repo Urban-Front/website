@@ -10,7 +10,6 @@ export default function About(context) {
   const [preview, setPreview] = useState(false);
   const [data, setData] = useState(context.servicesData.fields);
   getPreviewData(getServicesData, setData, setPreview);
-  console.log(data);
   return (
     <Layout preview={preview}>
       <h1 className="body-header">About</h1>
