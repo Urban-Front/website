@@ -11,4 +11,29 @@
   .swiper-container-vertical {
     height: 100vh;
   }
+  .swiper-notice {
+    .Notice__header,
+    .Notice__description,
+    .Notice__cta {
+      opacity: 0;
+      transform: translateY(4rem);
+      @include standard-transition(all, 0.6s);
+      transition-delay: 0.6s;
+    }
+    .Notice__description {
+      transition-delay: 0.9s;
+    }
+    .Notice__cta {
+      transition-delay: 1.2s;
+      display: block;
+    }
+    &.swiper-slide-active {
+      .Notice__header,
+      .Notice__description,
+      .Notice__cta {
+        opacity: 1;
+        transform: translate(0);
+      }
+    }
+  }
 }

@@ -16,7 +16,7 @@ export default function Gallery({
   const params = {
     slidesPerView: 1,
     spaceBetween: 0,
-    speed: 600,
+    speed: 900,
     loop: true,
     simulateTouch: false,
     initialSlide: Math.floor(Math.random() * data.fields.galleryItems.length),
@@ -71,6 +71,7 @@ export default function Gallery({
             )
           })}
         </Swiper>
+        <div className="swiper-pagination"></div>
       </div>
     </article>
   );

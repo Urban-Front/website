@@ -48,6 +48,21 @@ body,
     line-height: 3.125vw;
   }
 }
+.special-header {
+  font-size: 3rem;
+  line-height: 1;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: color('red');
+  -webkit-text-fill-color: transparent; /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: color('red');
+  @media (query(lg-up)) {
+    font-size: calc(3vh + 3vw);
+    line-height: 1;
+    -webkit-text-stroke-width: calc(0.0625vh + 0.0625vw);
+  }
+}
 h1, h2, h3, h4, h5 {
   font-family: $header-font;
   font-weight: bold;

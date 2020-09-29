@@ -8,6 +8,7 @@ import Layout from 'components/Layout';
 import Swiper from 'react-id-swiper';
 import Notice from 'components/modules/Notice';
 import Gallery from 'components/modules/Gallery';
+import Contact from 'components/modules/Contact';
 import FeaturedArticles from 'components/modules/FeaturedArticles';
 import FeaturedEvent from 'components/modules/FeaturedEvent';
 
@@ -23,7 +24,7 @@ export default function Home(context) {
     slidesPerView: 1,
     spaceBetween: 0,
     mousewheel: true,
-    speed: 600,
+    speed: 900,
     loop: false,
     keyboard: {
       enabled: true
@@ -32,7 +33,7 @@ export default function Home(context) {
   useEffect(() => {
     if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
       || window.innerWidth < 1024
-      || window.innerHeight < 600) {
+      || window.innerHeight < 480) {
       setIsMobile(true);
     }
   }, []);
@@ -43,62 +44,22 @@ export default function Home(context) {
           {data.gallery && (
             <Gallery data={data.gallery} />
           )}
-          {data.textCallout && (
-            <Notice className="h-100" data={data.textCallout} />
-          )}
-          {(data.featuredArticles || data.featuredEvent) && (
-            <div className="bt h-100 flex flex-column flex-row-lg justify-between">
-              {data.featuredArticles && (
-                <FeaturedArticles
-                  data={data.featuredArticles}
-                  className={classnames({
-                    'w-100 pv5': !data.featuredEvent,
-                    'w-100 w-60-lg br-lg pt5 pb3 pb5-lg': data.featuredEvent
-                  })}
-                />
-              )}
-              {data.featuredEvent && (
-                <FeaturedEvent
-                  data={data.featuredEvent}
-                  className={classnames('h-100', {
-                    'w-100 pv5': !data.featuredArticles,
-                    'w-100 w-40-lg pt3 pb5 pv5-lg': data.featuredArticles
-                  })}
-                />
-              )}
-            </div>
-          )}
+          {data.notices.map((item, index) => {
+            return (
+              <Notice key={index} className="h-100 swiper-notice" data={item} />
+            )
+          })}
         </>
       ): (
         <Swiper {...params} getSwiper={setSwiper}>
           {data.gallery && (
             <Gallery data={data.gallery} />
           )}
-          {data.textCallout && (
-            <Notice className="h-100" data={data.textCallout} />
-          )}
-          {(data.featuredArticles || data.featuredEvent) && (
-            <div className="bt h-100 flex flex-column flex-row-lg justify-between">
-              {data.featuredArticles && (
-                <FeaturedArticles
-                  data={data.featuredArticles}
-                  className={classnames({
-                    'w-100 pv5': !data.featuredEvent,
-                    'w-100 w-60-lg br-lg pt5 pb3 pb5-lg': data.featuredEvent
-                  })}
-                />
-              )}
-              {data.featuredEvent && (
-                <FeaturedEvent
-                  data={data.featuredEvent}
-                  className={classnames('h-100', {
-                    'w-100 pv5': !data.featuredArticles,
-                    'w-100 w-40-lg pt3 pb5 pv5-lg': data.featuredArticles
-                  })}
-                />
-              )}
-            </div>
-          )}
+          {data.notices.map((item, index) => {
+            return (
+              <Notice key={index} className="h-100 swiper-notice" data={item} />
+            )
+          })}
         </Swiper>
       )}
     </Layout>

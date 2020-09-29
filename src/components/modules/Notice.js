@@ -6,8 +6,10 @@ export default function Notice({
 }) {
   return (
     <article className={`Notice tc pv6 flex flex-column justify-center items-center ${className}`}>
-      <div className="Container Container__thin">
-        <h1 className="Notice__header body-header">{data.fields.title}</h1>
+      <div className="Container Container__medium">
+        <h1 className="Notice__header special-header">{data.fields.title}</h1>
+      </div>
+      <div className="Container Container__medium">
         <div className="Notice__description mt3">
           {documentToReactComponents(data.fields.description)}
         </div>
