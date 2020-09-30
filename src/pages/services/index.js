@@ -36,24 +36,31 @@ export default function About(context) {
     <Layout preview={preview} className="Services" headerClassName="">
       <article className="Container flex flex-wrap mv6">
         {data.services.map((service, index) => {
+          console.log(index);
           return (
             <section key={index} className="Service w-100 w-50-md w-25-lg">
-              <h3 className="body-header Services__name">{service.fields.title}</h3>
-              <ul>
-                {service.fields.serviceDetails.map((detail, index) => {
-                  return (
-                    <li key={index} className="Services__type mt3">
-                      <a
-                        href="#"
-                        className="Services__link"
-                        onClick={(e) => {
-                          openDetails(e, detail.fields);
-                        }}
-                      >{detail.fields.title}</a>
-                    </li>
-                  )
-                })}
-              </ul>
+              <div className={classnames("Service__inner mb3", {
+                'mh3-lg': index > 0 && index < 3,
+                'mr3-lg': index === 0,
+                'ml3-lg': index === 3
+              })}>
+                <h3 className="body-header Services__name">{service.fields.title}</h3>
+                <ul>
+                  {service.fields.serviceDetails.map((detail, index) => {
+                    return (
+                      <li key={index} className="Services__type mt3">
+                        <a
+                          href="#"
+                          className="Services__link"
+                          onClick={(e) => {
+                            openDetails(e, detail.fields);
+                          }}
+                        >{detail.fields.title}</a>
+                      </li>
+                    )
+                  })}
+                </ul>
+              </div>
             </section>
           )
         })}
