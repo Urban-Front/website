@@ -61,6 +61,7 @@ const prodConfig = withPlugins(
           'swiper-lazy',
           'swiper-lazy-loaded',
           'page-transition-enter',
+          'page-transition-enter-done',
           'page-transition-enter-active',
           'page-transition-exit',
           'page-transition-exit-active'

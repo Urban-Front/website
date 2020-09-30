@@ -60,6 +60,7 @@ body,
   @media (query(lg-up)) {
     font-size: calc(3vh + 3vw);
     line-height: 1;
+    letter-spacing: 0.0125rem;
     -webkit-text-stroke-width: calc(0.0625vh + 0.0625vw);
   }
 }
