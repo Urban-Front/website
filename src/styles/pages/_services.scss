@@ -70,6 +70,7 @@
         -webkit-text-fill-color: color('white'); /* Will override color (regardless of order) */
         -webkit-text-stroke-width: 1px;
         -webkit-text-stroke-color: color('red');
+        min-height: 10rem;
         @media (query(lg-up)) {
           font-size: calc(3vh + 6vw);
           line-height: 1;
