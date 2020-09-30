@@ -6,7 +6,7 @@
 }
 .page-transition-enter-done {
   .Nav {
-    display: block;
+    display: flex;
     background-color: color('white');
     z-index: 101;
     top: 0;
