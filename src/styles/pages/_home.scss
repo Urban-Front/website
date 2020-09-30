@@ -1,6 +1,7 @@
 .Home {
   .Gallery {
     height: 100vh;
+    min-height: 36rem;
     .swiper-slide {
       padding-top: $header-height;
     }

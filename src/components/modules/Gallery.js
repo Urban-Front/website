@@ -53,9 +53,11 @@ export default function Gallery({
                 })}
               >
                 <section className="Gallery__text ma5 ma7-lg">
-                  <h3 className="Gallery__title body-header">
-                    {item.fields.title}
-                  </h3>
+                  <div className="Gallery__title-wrapper">
+                    <h3 className="Gallery__title body-header">
+                      {item.fields.title}
+                    </h3>
+                  </div>
                   <div className="Gallery__description mt3">
                     {documentToReactComponents(item.fields.description)}
                   </div>

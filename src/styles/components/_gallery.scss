@@ -30,7 +30,7 @@
       transition-delay: 0s;
       opacity: 0;
     }
-    .Gallery__title,
+    .Gallery__title-wrapper,
     .Gallery__description,
     .Gallery__cta {
       opacity: 0;
@@ -50,7 +50,7 @@
         transition-delay: 0.9s;
         opacity: 1;
       }
-      .Gallery__title,
+      .Gallery__title-wrapper,
       .Gallery__description,
       .Gallery__cta {
         opacity: 1;
@@ -90,7 +90,7 @@
     }
   }
   &__title {
-    display: inline-block;
+    display: inline;
     background-color: rgba(0, 0, 0, 0.75);
     line-height: 1.5;
     padding: 0 0.2vw;

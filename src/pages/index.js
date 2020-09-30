@@ -34,7 +34,7 @@ export default function Home(context) {
   useEffect(() => {
     if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
       || window.innerWidth < 1024
-      || window.innerHeight < 480) {
+      || window.innerHeight < 576) {
       setIsMobile(true);
     }
   }, []);
@@ -47,7 +47,7 @@ export default function Home(context) {
           )}
           {data.notices.map((item, index) => {
             return (
-              <Notice key={index} className="h-100 swiper-notice" data={item} />
+              <Notice key={index} className="h-100" data={item} />
             )
           })}
         </>
