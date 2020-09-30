@@ -3,6 +3,20 @@
     color: color('red');
     font-weight: 700;
   }
+  &__introduction {
+    border-top: 0.125rem solid color('black');
+    border-bottom: 0.125rem solid color('black');
+    font-family: $serif-font;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    max-width: calc(100vw - 2rem);
+    p {
+      line-height: 1.5;
+    }
+    p + p {
+      margin-top: 1em;
+    }
+  }
   .Service {
     &__overlay {
       top: 0;

@@ -4,6 +4,7 @@ import React, { useRef, useState } from 'react';
 import Swiper from 'react-id-swiper';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import classnames from 'classnames';
+import Link from 'next/link';
 
 export default function Gallery({
   data,
@@ -51,24 +52,25 @@ export default function Gallery({
                   'justify-start items-center tl': position === 'center left',
                   'justify-end items-start tr': position === 'center right'
                 })}
+                style={{
+                  backgroundImage: `url(${item.fields.image.fields.file.url}?fm=png&q=70)`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center center'
+                }}
               >
                 <section className="Gallery__text ma5 ma7-lg">
                   <div className="Gallery__title-wrapper">
                     <h3 className="Gallery__title body-header">
-                      {item.fields.title}
+                      Now is the time for cities to reimagine their social futures
                     </h3>
                   </div>
                   <div className="Gallery__description mt3">
-                    {documentToReactComponents(item.fields.description)}
+                    <p>{item.fields.title}</p>
                   </div>
-                  <div className="Gallery__cta mt3">
-                    {documentToReactComponents(item.fields.cta)}
-                  </div>
+                  <Link href={`/services`}>
+                    <a title="Services" className="Gallery__cta mt3 dib">See how we can help ›</a>
+                  </Link>
                 </section>
-                <img
-                  className="Gallery__image absolute"
-                  src={`${item.fields.image.fields.file.url}?fm=png&q=70`}
-                />
               </div>
             )
           })}

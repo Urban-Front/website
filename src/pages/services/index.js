@@ -31,12 +31,14 @@ export default function About(context) {
   const closeDetails = () => {
     setModalOpen(false);
   };
-  console.log(data);
   return (
     <Layout preview={preview} className="Services" headerClassName="">
+      <article className="mv6 Services__introduction pv3 pv6-lg w-100 w-60-lg">
+        <h3 className="body-header special-header mb4">What we do</h3>
+        {documentToReactComponents(data.introduction)}
+      </article>
       <article className="Container flex flex-wrap mv6">
         {data.services.map((service, index) => {
-          console.log(index);
           return (
             <section key={index} className="Service w-100 w-50-md w-25-lg">
               <div className={classnames("Service__inner mb3", {

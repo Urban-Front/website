@@ -104,13 +104,11 @@
     }
   }
   &__cta {
-    a {
-      padding: 0 0.2vw;
-      color: white;
-      background-color: rgba(0, 0, 0, 0.75);
-      border: none;
-      text-decoration: underline;
-    }
+    padding: 0 0.2vw;
+    color: color('red');
+    background-color: color('white');
+    border: none;
+    text-decoration: underline;
   }
   &__image {
     z-index: 0;
