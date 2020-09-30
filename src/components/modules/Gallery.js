@@ -54,7 +54,7 @@ export default function Gallery({
               >
                 <section className="Gallery__text ma5 ma7-lg">
                   <div className="Gallery__title-wrapper">
-                    <h3 className="Gallery__title body-header body-header--large">
+                    <h3 className="Gallery__title body-header">
                       {item.fields.title}
                     </h3>
                   </div>
