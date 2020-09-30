@@ -1,14 +1,22 @@
-.page-transition-enter {
-  opacity: 0;
-}
-.page-transition-enter-active {
-  opacity: 1;
-  transition: opacity 333ms ease;
-}
-.page-transition-exit {
-  opacity: 1;
-}
-.page-transition-exit-active {
-  opacity: 0;
-  transition: opacity 333ms ease;
+#__next {
+  > div {
+    opacity: 0;
+  }
+  > div.page-transition-enter {
+    opacity: 0;
+  }
+  > div.page-transition-enter-done {
+    opacity: 1;
+  }
+  > div.page-transition-enter-active {
+    opacity: 1;
+    transition: opacity 333ms ease;
+  }
+  > div.page-transition-exit {
+    opacity: 1;
+  }
+  > div.page-transition-exit-active {
+    opacity: 0;
+    transition: opacity 333ms ease;
+  }
 }
