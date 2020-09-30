@@ -3,7 +3,10 @@
     height: 100vh;
     min-height: 36rem;
     .swiper-slide {
-      padding-top: $header-height;
+      padding-top: $header-height-small;
+      @media (query(lg-up)) {
+        padding-top: $header-height;
+      }
     }
     &__image {
       transform: translate(-50%, calc(-50% + 5rem));

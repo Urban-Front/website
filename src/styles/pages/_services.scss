@@ -3,4 +3,91 @@
     color: color('red');
     font-weight: 700;
   }
+  .Service {
+    &__overlay {
+      top: 0;
+      left: 0;
+      opacity: 0;
+      background-color: rgba(0, 0, 0, 0.8);
+      z-index: 101;
+      pointer-events: none;
+      @include standard-transition(opacity, 0.6s);
+      &.open {
+        pointer-events: all;
+        opacity: 1;
+        cursor: default;
+      }
+    }
+    &__details {
+      position: fixed;
+      top: 0;
+      left: 50%;
+      transform: translate(-50%, 100%);
+      background-color: color('white');
+      z-index: 1001;
+      @include standard-transition(all, 0.6s);
+      @media (query(lg-up)) {
+        // top: 3rem;
+      }
+      &-inner {
+        height: 100%;
+        overflow: scroll;
+      }
+      &.open {
+        transform: translate(-50%, 0);
+      }
+      &-close {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        width: 3rem;
+        height: 2rem;
+        .left {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 100%;
+          height: 0;
+          border-bottom: 0.125rem solid #000;
+          transform: translate(-50%, -50%) rotate(45deg);
+        }
+        .right {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 100%;
+          height: 0;
+          border-bottom: 0.125rem solid #000;
+          transform: translate(-50%, -50%) rotate(-45deg);
+        }
+      }
+      .Service__name {
+        font-size: 3rem;
+        line-height: 1;
+        text-transform: uppercase;
+        font-weight: 900;
+        color: color('red');
+        -webkit-text-fill-color: color('white'); /* Will override color (regardless of order) */
+        -webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-color: color('red');
+        @media (query(lg-up)) {
+          font-size: calc(3vh + 6vw);
+          line-height: 1;
+          -webkit-text-stroke-width: 0.325vh;
+        }
+        &-inner {
+          position: relative;
+          z-index: 101;
+        }
+      }
+      .Service__photo {
+        bottom: 0;
+        right: 0;
+        width: 10rem;
+        @media (query(lg-up)) {
+          width: 18rem;
+        }
+      }
+    }
+  }
 }

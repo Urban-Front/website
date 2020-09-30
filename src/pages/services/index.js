@@ -18,9 +18,18 @@ export default function About(context) {
   const [preview, setPreview] = useState(false);
   const [data, setData] = useState(context.servicesData.fields);
   getPreviewData(getServicesData, setData, setPreview);
-  const openDetails = (e, detailName) => {
+  const openDetails = (e, detail) => {
     e.preventDefault();
-    console.log('we should set');
+    console.log('we should set', detail);
+    setModalInfo({
+      title: detail.title,
+      photo: detail.photo,
+      description: detail.description
+    });
+    setModalOpen(true);
+  };
+  const closeDetails = () => {
+    setModalOpen(false);
   };
   console.log(data);
   return (
@@ -38,7 +47,7 @@ export default function About(context) {
                         href="#"
                         className="Services__link"
                         onClick={(e) => {
-                          openDetails(e, detail.fields.title);
+                          openDetails(e, detail.fields);
                         }}
                       >{detail.fields.title}</a>
                     </li>
@@ -48,6 +57,32 @@ export default function About(context) {
             </section>
           )
         })}
+      </article>
+      <button className={classnames("Service__overlay fixed w-100 h-100", {
+        open: modalOpen
+      })} onClick={closeDetails}></button>
+      <article className={classnames("Service__details fixed w-100 w-75-lg h-100", {
+        open: modalOpen
+      })}>
+        <div className="Service__details-inner w-100 ph3 pv6 ph6-lg">
+          <button className="Service__details-close" onClick={closeDetails}>
+            <span className="left"></span>
+            <span className="right"></span>
+          </button>
+          <h3 className="Service__name body-header relative">
+            <span className="Service__name-inner">{modalInfo.title}</span>
+            {modalInfo.photo && (
+              <img
+                src={`${modalInfo.photo.fields.file.url}?fm=jpg&q=70`}
+                className="Service__photo absolute" />
+            )}
+          </h3>
+          {modalInfo.description && (
+            <div className="Person__paragraph body-copy mt3">
+              {documentToReactComponents(modalInfo.description)}
+            </div>
+          )}
+        </div>
       </article>
       {modalOpen && <ScrollLockComponent />}
     </Layout>
