@@ -53,3 +53,11 @@ export async function getServicesData(preview) {
   })
   return entries.items[0]
 }
+
+export async function getTeamData(preview) {
+  const entries = await getClient(preview).getEntries({
+    'sys.contentType.sys.id[in]': 'teamPage',
+    include: 3
+  })
+  return entries.items[0]
+}

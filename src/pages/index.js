@@ -26,6 +26,7 @@ export default function Home(context) {
     mousewheel: true,
     speed: 900,
     loop: false,
+    simulateTouch: false,
     keyboard: {
       enabled: true
     }

@@ -1,92 +1,62 @@
 import { useState } from 'react';
 // The data
-import { getHomeData } from 'lib/api';
+import { getTeamData } from 'lib/api';
 import getPreviewData from 'lib/preview';
 // The modules
 import classnames from 'classnames';
 import Layout from 'components/Layout';
 import ScrollLockComponent from 'components/utils/scrollLockComponent';
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
 export default function Team(context) {
   const [modalOpen, setModalOpen] = useState(false);
+  const [modalInfo, setModalInfo] = useState({
+    name: '',
+    tagline: '',
+    subTagline: '',
+    description: null
+  });
   const [preview, setPreview] = useState(false);
-  const [data, setData] = useState(context.homeData.fields);
-  getPreviewData(getHomeData, setData, setPreview);
+  const [data, setData] = useState(context.teamData.fields);
+  getPreviewData(getTeamData, setData, setPreview);
   const openDetails = (e, person) => {
     e.preventDefault();
+    let info = data.teamMembers.filter(item => item.fields.name === person);
+    const infoObj = {
+      name: info[0].fields.name,
+      tagline: info[0].fields.tagline,
+      subTagline: info[0].fields.subTagline,
+      description: info[0].fields.description
+    };
+    setModalInfo(infoObj);
     setModalOpen(true);
   }
   const closeDetails = () => {
     setModalOpen(false);
   }
+  console.log(data);
   return (
     <Layout preview={preview} className="Team" headerClassName="">
       <article className="Container flex flex-wrap mv6">
-        <section className="Person w-100 w-50-md w-third-lg">
-          <a
-            href="#"
-            alt="Person Details"
-            className="Person__link db pv3 ph3-md"
-            onClick={(e) => {
-              openDetails(e, 'Harvey')
-            }}>
-            <figure className="Person__image"></figure>
-            <h3 className="Person__name body-header mt3">Person Name</h3>
-            <p className="Person__description mt3">Ut rhoncus magna vel vestibulum efficitur</p>
-          </a>
-        </section>
-        <section className="Person w-100 w-50-md w-third-lg">
-          <a
-            href="#"
-            alt="Person Details"
-            className="Person__link db pv3 ph3-md"
-            onClick={(e) => {
-              openDetails(e, 'Harvey')
-            }}>
-            <figure className="Person__image"></figure>
-            <h3 className="Person__name body-header mt3">Person Name</h3>
-            <p className="Person__description mt3">Ut rhoncus magna vel vestibulum efficitur</p>
-          </a>
-        </section>
-        <section className="Person w-100 w-50-md w-third-lg">
-          <a
-            href="#"
-            alt="Person Details"
-            className="Person__link db pv3 ph3-md"
-            onClick={(e) => {
-              openDetails(e, 'Harvey')
-            }}>
-            <figure className="Person__image"></figure>
-            <h3 className="Person__name body-header mt3">Person Name</h3>
-            <p className="Person__description mt3">Ut rhoncus magna vel vestibulum efficitur</p>
-          </a>
-        </section>
-        <section className="Person w-100 w-50-md w-third-lg">
-          <a
-            href="#"
-            alt="Person Details"
-            className="Person__link db pv3 ph3-md"
-            onClick={(e) => {
-              openDetails(e, 'Harvey')
-            }}>
-            <figure className="Person__image"></figure>
-            <h3 className="Person__name body-header mt3">Person Name</h3>
-            <p className="Person__description mt3">Ut rhoncus magna vel vestibulum efficitur</p>
-          </a>
-        </section>
-        <section className="Person w-100 w-50-md w-third-lg">
-          <a
-            href="#"
-            alt="Person Details"
-            className="Person__link db pv3 ph3-md"
-            onClick={(e) => {
-              openDetails(e, 'Harvey')
-            }}>
-            <figure className="Person__image"></figure>
-            <h3 className="Person__name body-header mt3">Person Name</h3>
-            <p className="Person__description mt3">Ut rhoncus magna vel vestibulum efficitur</p>
-          </a>
-        </section>
+        {data.teamMembers.map((item, index) => {
+          return (
+            <section key={index} className="Person w-100 w-50-md w-third-lg">
+              <a
+                href="#"
+                alt="Person Details"
+                className="Person__link db pv3 ph3-md"
+                onClick={(e) => {
+                  openDetails(e, item.fields.name);
+                }}>
+                <figure className="Person__image">
+                  <img src={`${item.fields.image.fields.file.url}?fm=jpg&q=70`} />
+                </figure>
+                <h3 className="Person__name body-header mt3">{item.fields.name}</h3>
+                <p className="Person__description mt3">{item.fields.tagline}</p>
+              </a>
+            </section>
+          )
+        })}
       </article>
       <button className={classnames("Person__overlay fixed w-100 h-100", {
         open: modalOpen
@@ -99,10 +69,14 @@ export default function Team(context) {
             <span className="left"></span>
             <span className="right"></span>
           </button>
-          <h3 className="Person__name body-header">Person Name</h3>
-          <p className="Person__description mt3">Ut rhoncus magna vel vestibulum efficitur.</p>
-          <p className="Person__sub-description mt3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sed malesuada nulla. Cras mollis orci dolor, facilisis elementum eros sagittis at.</p>
-          <p className="Person__paragraph body-copy mt3">Maecenas eu nisi nec diam vestibulum cursus. Nullam tempus ac eros a scelerisque. Cras vitae neque in erat feugiat molestie eget sit amet elit. Pellentesque nunc odio, laoreet in arcu quis, ullamcorper pharetra velit. Duis fermentum, ligula non pellentesque convallis, sapien ligula sagittis sem, sed laoreet dolor sapien et tellus. Praesent ac lacus ultricies nulla tincidunt molestie sed luctus erat. Cras eget pretium dolor, id ullamcorper augue. Aenean a sollicitudin libero, eget ultricies libero. Mauris condimentum tortor lacus, a molestie lacus malesuada eget. Ut at lectus sapien. Phasellus sed fermentum elit, ut tempor nibh. Suspendisse ornare ut ex id lobortis. Phasellus sit amet mattis nulla. Morbi egestas velit nisi, sed fermentum massa mattis in. In id enim in nisl volutpat molestie a id lorem.</p>
+          <h3 className="Person__name body-header">{modalInfo.name}</h3>
+          <p className="Person__description mt3">{modalInfo.tagline}</p>
+          <p className="Person__sub-description mt3">{modalInfo.subTagline}</p>
+          {modalInfo.description && (
+            <div className="Person__paragraph body-copy mt3">
+              {documentToReactComponents(modalInfo.description)}
+            </div>
+          )}
         </div>
       </article>
       {modalOpen && <ScrollLockComponent />}
@@ -111,8 +85,8 @@ export default function Team(context) {
 }
 
 export async function getStaticProps(context) {
-  const homeData = await getHomeData(false);
+  const teamData = await getTeamData(false);
   return {
-    props: {homeData}
+    props: {teamData}
   }
 }
