@@ -64,7 +64,7 @@ export default function Team(context) {
       <article className={classnames("Person__details fixed w-100 w-50-lg h-100", {
         open: modalOpen
       })}>
-        <div className="Person__details-inner w-100 pa3 pt6 pa6-lg">
+        <div className="Person__details-inner w-100 ph3 pv6 ph6-lg">
           <button className="Person__details-close" onClick={closeDetails}>
             <span className="left"></span>
             <span className="right"></span>
