@@ -1,1 +1,27 @@
-
+@font-face {
+  font-family: "Ping";
+  src: url("/static/fonts/PingRegular.eot"); /* IE9 Compat Modes */
+  src: url("/static/fonts/PingRegular.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+    url("/static/fonts/PingRegular.woff") format("woff"), /* Modern Browsers */
+    url("/static/fonts/PingRegular.ttf") format("truetype"); /* Safari, Android, iOS */
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Ping";
+  src: url("/static/fonts/PingBold.eot"); /* IE9 Compat Modes */
+  src: url("/static/fonts/PingBold.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+    url("/static/fonts/PingBold.woff") format("woff"), /* Modern Browsers */
+    url("/static/fonts/PingBold.ttf") format("truetype"); /* Safari, Android, iOS */
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Ping";
+  src: url("/static/fonts/PingBlack.eot"); /* IE9 Compat Modes */
+  src: url("/static/fonts/PingBlack.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+    url("/static/fonts/PingBlack.woff") format("woff"), /* Modern Browsers */
+    url("/static/fonts/PingBlack.ttf") format("truetype"); /* Safari, Android, iOS */
+  font-weight: 900;
+  font-style: normal;
+}
