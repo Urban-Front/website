@@ -75,7 +75,7 @@ export default function About(context) {
       <article className={classnames("Service__details fixed w-100 w-75-lg h-100", {
         open: modalOpen
       })}>
-        <div className="Service__details-inner w-100 ph3 pv6 ph6-lg">
+        <div className="Service__details-inner w-100 ph3 pv6 ph4-md ph6-lg">
           <button className="Service__details-close" onClick={closeDetails}>
             <span className="left"></span>
             <span className="right"></span>

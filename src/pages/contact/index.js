@@ -5,7 +5,7 @@ import getPreviewData from 'lib/preview';
 // The modules
 import classnames from 'classnames';
 import Layout from 'components/Layout';
-import SubscribeForm from 'components/modules/SubscribeForm';
+import ContactForm from 'components/modules/ContactForm';
 
 export default function Contact(context) {
   const [preview, setPreview] = useState(false);
@@ -13,7 +13,7 @@ export default function Contact(context) {
   getPreviewData(getHomeData, setData, setPreview);
   return (
     <Layout preview={preview}>
-      <SubscribeForm />
+      <ContactForm />
     </Layout>
   )
 }
