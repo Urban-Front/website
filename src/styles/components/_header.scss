@@ -29,10 +29,10 @@
           opacity: 0;
         }
         .top {
-          transform: rotate(45deg) translateY(1.1rem);
+          transform: rotate(45deg) translateY(1rem);
         }
         .bottom {
-          transform: rotate(-45deg) translateY(-1.1rem);
+          transform: rotate(-45deg) translateY(-1rem);
         }
       }
       .top,
@@ -42,6 +42,7 @@
         width: 100%;
         height: 0;
         border-top: 0.125rem solid color('black');
+        border-bottom: 0.125rem solid color('white');
         position: absolute;
         opacity: 1;
       }
@@ -50,7 +51,7 @@
         left: 0;
       }
       .middle {
-        top: 50.05%;
+        top: 46%;
         left: 0;
         opacity: 1;
       }

@@ -39,18 +39,20 @@ export default function Gallery({
       <div className="swiper-outer flex">
         <Swiper {...params} getSwiper={setSwiper}>
           {data.fields.galleryItems.map((item, index) => {
+            console.log(item);
             const position = positionClasses[index % positionClasses.length];
+            console.log(position === 'top right');
             return (
               <div
                 key={index}
                 datacolor={item.fields.colorPicker[0]}
                 className={classnames(`swiper-slide flex ${item.fields.colorPicker[0]}`, {
-                  'justify-start items-start tl': position === 'top left',
-                  'justify-start items-end tl': position === 'bottom left',
-                  'justify-end items-start tr': position === 'top right',
-                  'justify-end items-end tr': position === 'bottom right',
-                  'justify-start items-center tl': position === 'center left',
-                  'justify-end items-start tr': position === 'center right'
+                  'tl justify-start items-start': position === 'top left',
+                  'tl justify-start items-end': position === 'bottom left',
+                  'tr items-start justify-end': position === 'top right',
+                  'tr justify-end items-end': position === 'bottom right',
+                  'tl justify-start items-center': position === 'center left',
+                  'tr justify-end items-start': position === 'center right'
                 })}
                 style={{
                   backgroundImage: `url(${item.fields.image.fields.file.url}?fm=png&q=70)`,
@@ -58,14 +60,14 @@ export default function Gallery({
                   backgroundPosition: 'center center'
                 }}
               >
-                <section className="Gallery__text ma5 ma7-lg">
+                <section className="Gallery__text ma5 mh7-lg mv6-lg">
                   <div className="Gallery__title-wrapper">
                     <h3 className="Gallery__title body-header">
-                      Now is the time for cities to reimagine their social futures
+                      {item.fields.title}
                     </h3>
                   </div>
                   <div className="Gallery__description mt3">
-                    <p>{item.fields.title}</p>
+                    {documentToReactComponents(item.fields.description)}
                   </div>
                   <Link href={`/services`}>
                     <a title="Services" className="Gallery__cta mt3 dib">See how we can help ›</a>

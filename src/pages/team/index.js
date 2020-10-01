@@ -14,7 +14,8 @@ export default function Team(context) {
     name: '',
     tagline: '',
     subTagline: '',
-    description: null
+    description: null,
+    image: null
   });
   const [preview, setPreview] = useState(false);
   const [data, setData] = useState(context.teamData.fields);
@@ -26,7 +27,8 @@ export default function Team(context) {
       name: info[0].fields.name,
       tagline: info[0].fields.tagline,
       subTagline: info[0].fields.subTagline,
-      description: info[0].fields.description
+      description: info[0].fields.description,
+      imageUrl: info[0].fields.image.fields.file.url
     };
     setModalInfo(infoObj);
     setModalOpen(true);
@@ -61,7 +63,7 @@ export default function Team(context) {
       <button className={classnames("Person__overlay fixed w-100 h-100", {
         open: modalOpen
       })} onClick={closeDetails}></button>
-      <article className={classnames("Person__details fixed w-100 w-50-lg h-100", {
+      <article className={classnames("Person__details fixed w-100 w-60-lg h-100", {
         open: modalOpen
       })}>
         <div className="Person__details-inner w-100 ph3 pv6 ph6-lg">
@@ -69,7 +71,12 @@ export default function Team(context) {
             <span className="left"></span>
             <span className="right"></span>
           </button>
-          <h3 className="Person__name body-header">{modalInfo.name}</h3>
+          <div className="Person__name-wrapper relative">
+            <h3 className="Person__name body-header">
+              {modalInfo.name}
+            </h3>
+            <img src={`${modalInfo.imageUrl}?w=360&fm=jpg&q=70`} className="Person__modal-image absolute" />
+          </div>
           <p className="Person__description mt3">{modalInfo.tagline}</p>
           <p className="Person__sub-description mt3">{modalInfo.subTagline}</p>
           {modalInfo.description && (

@@ -33,7 +33,7 @@ export default function About(context) {
   };
   return (
     <Layout preview={preview} className="Services" headerClassName="">
-      <article className="mv6 Services__introduction pv3 pv6-lg w-100 w-60-lg">
+      <article className="mv6 Services__introduction pv3 pv6-lg w-100 w-70-lg">
         <h3 className="body-header special-header mb4">What we do</h3>
         {documentToReactComponents(data.introduction)}
       </article>
