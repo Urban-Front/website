@@ -1,3 +1,25 @@
 .Notice {
-
+  &__video {
+    object-fit: cover;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+  }
+  &__description {
+    p {
+      padding: 0 0.2vw;
+      display: inline;
+      background-color: white;
+    }
+  }
+  &__cta {
+    a {
+      padding: 0 0.2vw;
+      display: inline-block;
+      border: none;
+      text-decoration: underline;
+      background-color: white;
+    }
+  }
 }
