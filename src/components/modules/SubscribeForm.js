@@ -1,7 +1,7 @@
 import MailchimpSubscribe from "react-mailchimp-subscribe"
 const url = "https://gmail.us2.list-manage.com/subscribe/post?u=376067c300d28e94eb89e57e9&amp;id=fe103be3c6";
 
-export default function Contact({className = ''}) {
+export default function SubscribeForm({className = ''}) {
   return (
     <article className={`Contact tc pv6 flex flex-column justify-center items-center ${className}`}>
       <h3 className="body-header">Subscribe</h3>

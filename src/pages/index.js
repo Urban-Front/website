@@ -8,7 +8,7 @@ import Layout from 'components/Layout';
 import Swiper from 'react-id-swiper';
 import Notice from 'components/modules/Notice';
 import Gallery from 'components/modules/Gallery';
-import Contact from 'components/modules/Contact';
+import SubscribeForm from 'components/modules/SubscribeForm';
 import FeaturedArticles from 'components/modules/FeaturedArticles';
 import FeaturedEvent from 'components/modules/FeaturedEvent';
 
@@ -50,7 +50,7 @@ export default function Home(context) {
               <Notice key={index} className="h-100" data={item} />
             )
           })}
-          <Contact className="h-100" />
+          <SubscribeForm className="h-100" />
         </>
       ): (
         <Swiper {...params} getSwiper={setSwiper}>
@@ -62,7 +62,7 @@ export default function Home(context) {
               <Notice key={index} className="h-100 swiper-notice" data={item} />
             )
           })}
-          <Contact className="h-100" />
+          <SubscribeForm className="h-100" />
         </Swiper>
       )}
     </Layout>
