@@ -50,6 +50,7 @@ export default function Home(context) {
               <Notice key={index} className="h-100" data={item} />
             )
           })}
+          <Contact className="h-100" />
         </>
       ): (
         <Swiper {...params} getSwiper={setSwiper}>
@@ -61,6 +62,7 @@ export default function Home(context) {
               <Notice key={index} className="h-100 swiper-notice" data={item} />
             )
           })}
+          <Contact className="h-100" />
         </Swiper>
       )}
     </Layout>

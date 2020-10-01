@@ -1,0 +1,41 @@
+.Contact {
+  input {
+    border: 1px solid color('mid-gray');
+    padding: 1em;
+    margin-right: 0.25em;
+  }
+  button {
+    padding: 1em;
+    text-transform: uppercase;
+    border: 0.125rem solid color('red');
+    color: color('red');
+    font-weight: 700;
+    @include standard-transition(all, 0.3s);
+    &:hover {
+      background-color: color('red');
+      color: color('white');
+    }
+  }
+  input, button {
+    display: inline-block;
+    font-size: 1rem;
+    line-height: 1;
+    @media (query(lg-up)) {
+      font-size: 1.25vw;
+      line-height: 1;
+    }
+  }
+  &__notice {
+    font-size: 80%;
+    color: color('mid-gray');
+  }
+  &__license {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    width: calc(100vw - 2rem);
+    &-link {
+      border-bottom: none;
+    }
+  }
+}
