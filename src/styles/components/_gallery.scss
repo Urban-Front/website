@@ -99,7 +99,7 @@
   }
   &__title {
     display: inline;
-    background-color: rgba(0, 0, 0, 0.75);
+    background-color: rgba(0, 0, 0, 0.85);
     padding: 0 0.2vw;
     font-size: 1.8125rem;
     line-height: 1.375;
@@ -112,7 +112,7 @@
   &__description {
     p {
       display: inline;
-      background-color: rgba(0, 0, 0, 0.75);
+      background-color: rgba(0, 0, 0, 0.85);
       line-height: 1.5;
       padding: 0 0.2vw;
     }
@@ -131,27 +131,5 @@
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-  }
-  &__arrow {
-    display: block;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.75);
-    color: white;
-    z-index: 100;
-    font-size: 3rem;
-    line-height: 1;
-    padding: 0 1vw 0.5rem 1rem;
-    opacity: 0.4;
-    @include standard-transition(opacity);
-    &:hover {
-      opacity: 1;
-    }
-    &-prev {
-      left: 0;
-    }
-    &-next {
-      right: 0;
-    }
   }
 }
