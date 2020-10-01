@@ -5,6 +5,7 @@ import getPreviewData from 'lib/preview';
 // The modules
 import classnames from 'classnames';
 import Layout from 'components/Layout';
+import SubscribeForm from 'components/modules/SubscribeForm';
 import ScrollLockComponent from 'components/utils/scrollLockComponent';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
@@ -44,7 +45,8 @@ export default function About(context) {
               <div className={classnames("Service__inner mb3", {
                 'mh3-lg': index > 0 && index < 3,
                 'mr3-lg': index === 0,
-                'ml3-lg': index === 3
+                'ml3-lg': index === 3,
+                'mt3 mt0-lg': index !== 0
               })}>
                 <h3 className="body-header Services__name">{service.fields.title}</h3>
                 <ul>
@@ -94,6 +96,7 @@ export default function About(context) {
         </div>
       </article>
       {modalOpen && <ScrollLockComponent />}
+      <SubscribeForm className="SubscribeForm--general" />
     </Layout>
   )
 }
