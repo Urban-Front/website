@@ -46,8 +46,9 @@ export default function Home(context) {
             <Gallery data={data.gallery} />
           )}
           {data.notices.map((item, index) => {
+            const shouldShowVideo = (index === 0);
             return (
-              <Notice key={index} className="h-100" data={item} />
+              <Notice key={index} className="h-100" data={item} showVideo={shouldShowVideo} />
             )
           })}
           <SubscribeForm className="h-100" />

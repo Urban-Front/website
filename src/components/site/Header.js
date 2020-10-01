@@ -30,7 +30,9 @@ export default function Header({preview = false, className = ''}) {
               </a>
             </Link>
           </section>
-          <section className="Header__hamburger fixed">
+          <section className={classnames("Header__hamburger fixed", {
+                active: burgerState
+              })}>
             <button
               className={classnames("Header__hamburger-button", {
                 active: burgerState

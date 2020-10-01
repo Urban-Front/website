@@ -7,7 +7,7 @@ export default function Notice({
   showVideo = false
 }) {
   return (
-    <article className={`Notice tc pv6 flex flex-column justify-center items-center ${className}`}>
+    <article className={`Notice relative tc pv6 flex flex-column justify-center items-center ${className}`}>
       {showVideo && (
         <video className="Notice__video absolute" autoPlay loop muted playsInline poster="images/poster.png">
           <source src="video/sequence.mp4" type="video/mp4" />
