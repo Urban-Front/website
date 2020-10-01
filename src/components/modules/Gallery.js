@@ -25,7 +25,7 @@ export default function Gallery({
       delay: 10000,
     },
     keyboard: {
-      enabled: true
+      enabled: false
     },
     on: {
       slideChange: function() {
@@ -55,7 +55,7 @@ export default function Gallery({
                   'tr justify-end items-start': position === 'center right'
                 })}
                 style={{
-                  backgroundImage: `url(${item.fields.image.fields.file.url}?fm=png&q=70)`,
+                  backgroundImage: `url(${item.fields.image.fields.file.url}?w=1400&fm=png&q=70)`,
                   backgroundSize: 'cover',
                   backgroundPosition: 'center center'
                 }}

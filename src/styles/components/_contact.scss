@@ -8,7 +8,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  input {
+  input, textarea {
+    box-sizing: border-box;
     border: 1px solid color('mid-gray');
     padding: 1em;
     margin-right: 0.25em;
@@ -25,7 +26,7 @@
       color: color('white');
     }
   }
-  input, button {
+  input, button, textarea {
     display: inline-block;
     font-size: 1rem;
     line-height: 1;
@@ -36,7 +37,10 @@
   }
   &__notice {
     font-size: 80%;
+    line-height: 1.15;
     color: color('mid-gray');
+  }
+  &__description {
   }
   &--general {
     display: block;
