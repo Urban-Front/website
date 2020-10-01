@@ -1,4 +1,7 @@
 .Notice {
+  background-image: url('/images/notice.jpg');
+  background-size: cover;
+  background-position: center center;
   &__video {
     object-fit: cover;
     width: 100vw;

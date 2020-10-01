@@ -3,13 +3,16 @@ import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 
 export default function Notice({
   data,
-  className = ''
+  className = '',
+  showVideo = false
 }) {
   return (
     <article className={`Notice tc pv6 flex flex-column justify-center items-center ${className}`}>
-      <video className="Notice__video absolute" autoPlay loop muted playsInline poster="images/poster.png">
-        <source src="video/sequence.mp4" type="video/mp4" />
-      </video>
+      {showVideo && (
+        <video className="Notice__video absolute" autoPlay loop muted playsInline poster="images/poster.png">
+          <source src="video/sequence.mp4" type="video/mp4" />
+        </video>
+      )}
       <div className="Container Container__medium tl">
         <h1 className="Notice__header special-header">{data.fields.title}</h1>
       </div>
