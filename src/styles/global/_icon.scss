@@ -1,0 +1,11 @@
+.Icon {
+  &__twitter,
+  &__instagram {
+    width: 3rem;
+    fill: color('mid-gray');
+    @include standard-transition();
+    &:hover {
+      fill: black;
+    }
+  }
+}
