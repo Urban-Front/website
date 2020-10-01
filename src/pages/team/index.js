@@ -5,6 +5,7 @@ import getPreviewData from 'lib/preview';
 // The modules
 import classnames from 'classnames';
 import Layout from 'components/Layout';
+import SubscribeForm from 'components/modules/SubscribeForm';
 import ScrollLockComponent from 'components/utils/scrollLockComponent';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
@@ -87,6 +88,7 @@ export default function Team(context) {
         </div>
       </article>
       {modalOpen && <ScrollLockComponent />}
+      <SubscribeForm className="SubscribeForm--general" />
     </Layout>
   )
 }

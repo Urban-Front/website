@@ -65,7 +65,7 @@ body,
   text-transform: uppercase;
   font-weight: 900;
   color: color('red');
-  -webkit-text-fill-color: transparent; /* Will override color (regardless of order) */
+  -webkit-text-fill-color: white; /* Will override color (regardless of order) */
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: color('red');
   @media (query(lg-up)) {

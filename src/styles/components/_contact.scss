@@ -1,4 +1,7 @@
-.Contact {
+.SubscribeForm {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   input {
     border: 1px solid color('mid-gray');
     padding: 1em;
@@ -28,6 +31,12 @@
   &__notice {
     font-size: 80%;
     color: color('mid-gray');
+  }
+  &--general {
+    display: block;
+    .SubscribeForm__license {
+      position: relative;
+    }
   }
   &__license {
     position: absolute;
