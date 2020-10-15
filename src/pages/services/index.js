@@ -21,7 +21,6 @@ export default function About(context) {
   getPreviewData(getServicesData, setData, setPreview);
   const openDetails = (e, detail) => {
     e.preventDefault();
-    console.log('we should set', detail);
     setModalInfo({
       title: detail.title,
       photo: detail.photo,
