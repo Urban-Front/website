@@ -41,7 +41,7 @@ export async function getArticleBySlug(preview, slug) {
   const entries = await getClient(preview).getEntries({
     content_type: 'article',
     limit: 1,
-    'fields.slug[in]': slug
+    'fields.slug[in]': slug.slug
   })
   return entries.items[0]
 }

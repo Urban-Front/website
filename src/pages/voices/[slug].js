@@ -12,7 +12,7 @@ export default function Voices(context) {
   const [data, setData] = useState(context.article.fields);
   getPreviewData(getArticleBySlug, setData, setPreview);
   return (
-    <Layout preview={preview}>
+    <Layout preview={preview} className="Voices">
       <article className="Container mt4 mb7">
         <img src={`${data.image.fields.file.url}?w=2048&fm=jpg&fl=progressive&q=70`} alt={data.image.fields.file.title} className="db mha" />
         <section className="Container Container__medium Voices__head pb4">
@@ -32,7 +32,7 @@ export default function Voices(context) {
 
 export async function getStaticProps(context) {
   const params = context.params;
-  const article = await getArticleBySlug(params);
+  const article = await getArticleBySlug(false, params);
   return {
     props: {article}
   }
