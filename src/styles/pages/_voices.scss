@@ -5,6 +5,12 @@
   &__head-inner {
     border-color: color('red');
   }
+  &__article {
+    box-sizing: border-box;
+  }
+  &__image {
+    width: 100%;
+  }
   .body-copy {
     h1 + p,
     h2 + p,
