@@ -71,12 +71,12 @@ export default function Voices(context) {
       <article className={`Voices ph3 w-100`}>
         <section className="Voices__container Container mv3 mv4-lg">
           <h3 className="body-header">Filters</h3>
-          <ul className="Voices__filters flex flex-wrap mt3">
+          <ul className="Voices__filters flex flex-wrap mt1">
             {articleTypes.map((item, index) => {
               return (
                 <li className="Voices__filter" key={index}>
                   <button
-                    className={classnames('Voices__filter-button dib mr3 pa2', {
+                    className={classnames('Voices__filter-button dib mr3 mt3 pa2', {
                       active: activeFilters.types.indexOf(item) !== -1
                     })}
                     onClick={() => {
@@ -87,12 +87,12 @@ export default function Voices(context) {
               )
             })}
           </ul>
-          <ul className="Voices__filters flex flex-wrap mt3">
+          <ul className="Voices__filters flex flex-wrap mt1">
             {articleTags.map((item, index) => {
               return (
                 <li className="Voices__filter" key={index}>
                   <button
-                    className={classnames('Voices__filter-button dib mr3 pa2', {
+                    className={classnames('Voices__filter-button dib mr3 mt3 pa2', {
                       active: activeFilters.tags.indexOf(item) !== -1
                     })}
                     onClick={() => {
