@@ -142,10 +142,10 @@ export default function Voices(context) {
                         <h5 className="Voices__type mt2">{item.fields.type[0]}</h5>
                         <h3 className="Voices__title mt1">{item.fields.title}</h3>
                         {item.fields.author && (
-                          <h5 className="Voices__author mt2">by {item.fields.author}</h5>
+                          <h5 className="Voices__author mt2">{item.fields.author}</h5>
                         )}
                         {item.fields.tags && (
-                          <ul className="Voices__tags">
+                          <ul className="Voices__tags mt2">
                             {item.fields.tags.map((item, index) => {
                               return (<li className="Voices__tag dib mr1" key={index}>{item}</li>)
                               })}
