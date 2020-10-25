@@ -113,7 +113,9 @@ export default function Voices(context) {
             onClick={() => {
               setShowFilters(!showFilters);
             }}
-          >Filters <span className={classnames("Voices__filter-chevron dib ml3", {active: showFilters})}>‹</span></button>
+          >Filters
+          <span className={classnames("Voices__filter-count dib ml3", {active: activeFilters.types.length || activeFilters.tags.length})}>({activeFilters.types.length + activeFilters.tags.length})</span>
+          <span className={classnames("Voices__filter-chevron dib ml3", {active: showFilters})}>‹</span></button>
           <ul className={classnames("Voices__filters flex flex-wrap justify-end mt1", {
             active: showFilters
           })}>

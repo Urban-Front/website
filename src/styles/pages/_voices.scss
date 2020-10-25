@@ -74,6 +74,12 @@
       height: auto;
     }
   }
+  &__filter-count {
+    display: none;
+    &.active {
+      display: inline-block;
+    }
+  }
   &__filter-chevron {
     transform: rotate(90deg);
     &.active {
