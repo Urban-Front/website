@@ -63,7 +63,6 @@ export default function Voices(context) {
   }
 
   useEffect(() => {
-    console.log(data);
     let allArticleTypes = [];
     let allArticleTags = [];
     /**
@@ -95,13 +94,19 @@ export default function Voices(context) {
         }
       });
     });
-    console.log(typesObj);
-    setArticlesByTypes(typesObj);
+    let sortedKeys = Object.keys(typesObj).sort((keyA, keyB) => {
+      return typesObj[keyB].length - typesObj[keyA].length;
+    });
+    let newObj = {};
+    sortedKeys.forEach(key => {
+      newObj[key] = typesObj[key];
+    })
+    setArticlesByTypes(newObj);
   }, []);
   return (
     <Layout preview={preview}>
       <article className={`Voices ph3 w-100`}>
-        <h1 className="Voices__page-header">UF Voices</h1>
+        <h1 className="Voices__page-header mt3 mt5-lg">UF Voices</h1>
         <section className="Voices__container Container mv3 mv4-lg tr">
           <button
             className="body-header"
@@ -206,7 +211,7 @@ export default function Voices(context) {
           <section className="Voices__container Container mb4 mb6-lg">
             <div className="Voices__container-inner flex flex-wrap">
               <Link as={`/voices/${data[0].fields.slug}`} href="/voices/[slug]">
-                <a className="Voices__article-link flex w-100 w-50-lg  db">
+                <a className="Voices__article-link flex w-100 w-two-thirds-lg  db">
                   <div className="Voices__article Voices__article-featured flex-grow-1 flex flex-column ma3 pa3">
                     {data[0].fields.image && (
                       <figure className="w-100 mb3 mb0-md mr0 mr3-md">
@@ -231,7 +236,7 @@ export default function Voices(context) {
                 </a>
               </Link>
               <Link as={`/voices/${data[1].fields.slug}`} href="/voices/[slug]">
-                <a className="Voices__article-link flex w-100 w-50-lg  db">
+                <a className="Voices__article-link flex w-100 w-third-lg  db">
                   <div className="Voices__article Voices__article-featured flex-grow-1 flex flex-column ma3 pa3">
                     {data[1].fields.image && (
                       <figure className="w-100 mb3 mb0-md mr0 mr3-md">
