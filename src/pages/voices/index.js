@@ -265,7 +265,7 @@ export default function Voices(context) {
             </div>
             {Object.keys(articlesByTypes).map((type, index) => {
               return (
-                <div className="mb3" key={index}>
+                <div className="mt3" key={index}>
                   <h3 className="body-header">{type}s</h3>
                   <div className="Voices__container-inner flex flex-wrap">
                     {articlesByTypes[type].map((item, index) => {
