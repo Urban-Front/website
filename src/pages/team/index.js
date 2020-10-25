@@ -37,7 +37,6 @@ export default function Team(context) {
   const closeDetails = () => {
     setModalOpen(false);
   }
-  console.log(data);
   return (
     <Layout preview={preview} className="Team" headerClassName="">
       <article className="Container flex flex-wrap mv6">
