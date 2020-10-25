@@ -1,19 +1,36 @@
 .Voices {
+  &__container-inner {
+    margin-left: -1rem;
+    margin-right: -1rem;
+  }
   &__author {
     color: color('red');
   }
   &__head-inner {
     border-color: color('red');
   }
+  &__article-link {
+    border-bottom: none;
+  }
   &__article {
     box-sizing: border-box;
+    border: calc(0.125vh + 0.125vw) solid color('red');
   }
   &__image {
     width: 100%;
   }
+  &__title {
+    color: color('black');
+    font-size: 1.4vw;
+    line-height: 1.8vw;
+    font-weight: 900;
+  }
   &__type {
     color: color('red');
     font-size: 80%;
+  }
+  &__author {
+    color: color('black');
   }
   &__tags {
     font-size: 80%;
@@ -27,6 +44,20 @@
     }
     &:after {
       content: ',';
+    }
+  }
+  &__filter-button {
+    border: calc(0.125vh + 0.125vw) solid color('black');
+    @include standard-transition(all);
+    font-weight: 700;
+    &:hover {
+      color: color('red');
+      border-color: color('red');
+    }
+    &.active {
+      background-color: color('red');
+      color: color('white');
+      border-color: color('red');
     }
   }
   .body-copy {
