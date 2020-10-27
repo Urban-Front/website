@@ -65,6 +65,9 @@
         max-height: 24rem;
         object-fit: cover;
       }
+      &-header {
+        color: color('black');
+      }
     }
   }
   &__image {

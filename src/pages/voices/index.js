@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 // The data
-import { getArticles } from 'lib/api';
+import { getArticles, getVoicesPage } from 'lib/api';
 import getPreviewData from 'lib/preview';
 // The modules
 import classnames from 'classnames';
@@ -13,7 +13,8 @@ export default function Voices(context) {
    * All states
    */
   const [preview, setPreview] = useState(false);
-  const [data, setData] = useState(context.articles);
+  const [articles, setArticles] = useState(context.articles);
+  const [voicesPage, setVoicesPage] = useState(context.voicesPage.fields);
   const [articleTypes, setArticleTypes] = useState([]);
   const [articleTags, setArticleTags] = useState([]);
   const [showFilters, setShowFilters] = useState(false);
@@ -27,7 +28,8 @@ export default function Voices(context) {
   /**
    * Get the preview data
    */
-  getPreviewData(getArticles, setData, setPreview, false);
+  getPreviewData(getArticles, setArticles, setPreview, false);
+  getPreviewData(getVoicesPage, setVoicesPage, setPreview, true);
 
   /**
    * Add or remove a filter from activeFilters
@@ -68,7 +70,7 @@ export default function Voices(context) {
     /**
      * Create the type and tag filters arrays
      */
-    data.forEach(item => {
+    articles.forEach(item => {
       if (allArticleTypes.indexOf(item.fields.type[0]) === -1) {
         allArticleTypes.push(item.fields.type[0]);
       }
@@ -88,7 +90,7 @@ export default function Voices(context) {
     const typesObj = {};
     allArticleTypes.forEach(item => {
       typesObj[item] = [];
-      data.forEach(datum => {
+      articles.forEach(datum => {
         if (datum.fields.type[0] === item) {
           typesObj[item].push(datum);
         }
@@ -159,7 +161,7 @@ export default function Voices(context) {
           // If filters are active we show all articles (filtered)
           <section className="Voices__container Container mb4 mb6-lg">
             <div className="Voices__container-inner flex flex-wrap">
-              {data.filter(item => {
+              {articles.filter(item => {
                 if (activeFilters.types.length || activeFilters.tags.length) {
                   let filterBool = false;
                   if (activeFilters.types.length) {
@@ -216,62 +218,48 @@ export default function Voices(context) {
           // The featured articles
           <section className="Voices__container Container mb4 mb6-lg">
             <div className="Voices__container-inner Voices__container-inner--featured flex flex-wrap">
-              <Link as={`/voices/${data[0].fields.slug}`} href="/voices/[slug]">
-                <a className={`Voices__article-link Voices__article-link-${data[0].fields.type[0]} flex w-100 w-two-thirds-lg db`}>
-                  <div className="Voices__article Voices__article-featured flex-grow-1 flex flex-column ma3 pa3">
-                    {data[0].fields.image && (
-                      <figure className="w-100 mb3 mb0-md mr0 mr3-md">
-                        <img className="Voices__image db" src={`${data[0].fields.image.fields.file.url}?w=320&fm=jpg&q=70`} />
-                      </figure>
-                    )}
-                    <div className="w-100">
-                      <h5 className="Voices__type mt2">{data[0].fields.type[0]}</h5>
-                      <h3 className="Voices__title mt1">{data[0].fields.title}</h3>
-                      {data[0].fields.author && (
-                        <h5 className="Voices__author mt2">{data[0].fields.author}</h5>
-                      )}
-                      {data[0].fields.tags && (
-                        <ul className="Voices__tags mt2">
-                          {data[0].fields.tags.map((item, index) => {
-                            return (<li className="Voices__tag dib mr1" key={index}>{item}</li>)
-                            })}
-                        </ul>
-                      )}
-                    </div>
-                  </div>
-                </a>
-              </Link>
-              <Link as={`/voices/${data[1].fields.slug}`} href="/voices/[slug]">
-                <a className={`Voices__article-link Voices__article-link-${data[1].fields.type[0]} flex w-100 w-third-lg db`}>
-                  <div className="Voices__article Voices__article-featured flex-grow-1 flex flex-column ma3 pa3">
-                    {data[1].fields.image && (
-                      <figure className="w-100 mb3 mb0-md mr0 mr3-md">
-                        <img className="Voices__image db" src={`${data[1].fields.image.fields.file.url}?w=320&fm=jpg&q=70`} />
-                      </figure>
-                    )}
-                    <div className="w-100">
-                      <h5 className="Voices__type mt2">{data[1].fields.type[0]}</h5>
-                      <h3 className="Voices__title mt1">{data[1].fields.title}</h3>
-                      {data[1].fields.author && (
-                        <h5 className="Voices__author mt2">{data[1].fields.author}</h5>
-                      )}
-                      {data[1].fields.tags && (
-                        <ul className="Voices__tags mt2">
-                          {data[1].fields.tags.map((item, index) => {
-                            return (<li className="Voices__tag dib mr1" key={index}>{item}</li>)
-                            })}
-                        </ul>
-                      )}
-                    </div>
-                  </div>
-                </a>
-              </Link>
+              {voicesPage.featuredArticles.map((featured, index) => {
+                const article = featured.fields.article;
+                return (
+                  <Link as={`/voices/${article.fields.slug}`} key={index} href="/voices/[slug]">
+                    <a
+                      className={classnames(`Voices__article-link Voices__article-link-${article.fields.type[0]} w-100 db flex flex-column`, {
+                        'w-two-thirds-lg': index % 2 === 0,
+                        'w-third-lg': index % 2 === 1
+                      }
+                    )}>
+                      <h3 className="Voices__article-featured-header body-header mh3">{featured.fields.title}</h3>
+                      <div className="Voices__article Voices__article-featured flex-grow-1 flex flex-column ma3 pa3">
+                        {article.fields.image && (
+                          <figure className="w-100 mb3 mb0-md mr0 mr3-md">
+                            <img className="Voices__image db" src={`${article.fields.image.fields.file.url}?w=320&fm=jpg&q=70`} />
+                          </figure>
+                        )}
+                        <div className="w-100">
+                          <h5 className="Voices__type mt2">{article.fields.type[0]}</h5>
+                          <h3 className="Voices__title mt1">{article.fields.title}</h3>
+                          {article.fields.author && (
+                            <h5 className="Voices__author mt2">{article.fields.author}</h5>
+                          )}
+                          {article.fields.tags && (
+                            <ul className="Voices__tags mt2">
+                              {article.fields.tags.map((item, index) => {
+                                return (<li className="Voices__tag dib mr1" key={index}>{item}</li>)
+                                })}
+                            </ul>
+                          )}
+                        </div>
+                      </div>
+                    </a>
+                  </Link>
+                  )
+              })}
             </div>
             <div className="Voices__container-inner flex flex-wrap">
               {Object.keys(articlesByTypes).map((type, index) => {
                 return (
                   <div className="w-100 w-third-lg mt3" key={index}>
-                    <h3 className="body-header ml3">{type}s</h3>
+                    <h3 className="body-header ml3">{type === 'media' ? 'media' : type + 's'}</h3>
                       {articlesByTypes[type].map((item, index) => {
                         return (
                           <Link as={`/voices/${item.fields.slug}`} href="/voices/[slug]" key={index}>
@@ -313,8 +301,12 @@ export default function Voices(context) {
 }
 
 export async function getStaticProps(context) {
+  const voicesPage = await getVoicesPage(false);
   const articles = await getArticles(false);
   return {
-    props: {articles}
+    props: {
+      voicesPage: voicesPage,
+      articles: articles
+    }
   }
 }
