@@ -107,6 +107,7 @@ export default function Voices(context) {
     <Layout preview={preview}>
       <article className={`Voices ph3 w-100`}>
         <h1 className="Voices__page-header mt3 mt5-lg">UF Voices</h1>
+        {/* The filters */}
         <section className="Voices__container Container mv3 mv4-lg tr">
           <button
             className="body-header"
@@ -153,7 +154,9 @@ export default function Voices(context) {
             })}
           </ul>
         </section>
+        {/* The articles */}
         {filtersActive ? (
+          // If filters are active we show all articles (filtered)
           <section className="Voices__container Container mb4 mb6-lg">
             <div className="Voices__container-inner flex flex-wrap">
               {data.filter(item => {
@@ -181,7 +184,7 @@ export default function Voices(context) {
               }).map((item, index) => {
                 return (
                   <Link as={`/voices/${item.fields.slug}`} href="/voices/[slug]" key={index}>
-                    <a className="Voices__article-link flex w-100 w-third-lg  db">
+                    <a className={`Voices__article-link Voices__article-link-${item.fields.type[0]} flex w-100 w-third-lg db`}>
                       <div className="Voices__article flex-grow-1 flex flex-column ma3 pa3">
                         {item.fields.image && (
                           <figure className="w-100 mb3 mb0-md mr0 mr3-md">
@@ -210,10 +213,11 @@ export default function Voices(context) {
             </div>
           </section>
         ) : (
+          // The featured articles
           <section className="Voices__container Container mb4 mb6-lg">
-            <div className="Voices__container-inner flex flex-wrap">
+            <div className="Voices__container-inner Voices__container-inner--featured flex flex-wrap">
               <Link as={`/voices/${data[0].fields.slug}`} href="/voices/[slug]">
-                <a className="Voices__article-link flex w-100 w-two-thirds-lg  db">
+                <a className={`Voices__article-link Voices__article-link-${data[0].fields.type[0]} flex w-100 w-two-thirds-lg db`}>
                   <div className="Voices__article Voices__article-featured flex-grow-1 flex flex-column ma3 pa3">
                     {data[0].fields.image && (
                       <figure className="w-100 mb3 mb0-md mr0 mr3-md">
@@ -238,7 +242,7 @@ export default function Voices(context) {
                 </a>
               </Link>
               <Link as={`/voices/${data[1].fields.slug}`} href="/voices/[slug]">
-                <a className="Voices__article-link flex w-100 w-third-lg  db">
+                <a className={`Voices__article-link Voices__article-link-${data[1].fields.type[0]} flex w-100 w-third-lg db`}>
                   <div className="Voices__article Voices__article-featured flex-grow-1 flex flex-column ma3 pa3">
                     {data[1].fields.image && (
                       <figure className="w-100 mb3 mb0-md mr0 mr3-md">
@@ -263,44 +267,44 @@ export default function Voices(context) {
                 </a>
               </Link>
             </div>
-            {Object.keys(articlesByTypes).map((type, index) => {
-              return (
-                <div className="mt3" key={index}>
-                  <h3 className="body-header">{type}s</h3>
-                  <div className="Voices__container-inner flex flex-wrap">
-                    {articlesByTypes[type].map((item, index) => {
-                      return (
-                        <Link as={`/voices/${item.fields.slug}`} href="/voices/[slug]" key={index}>
-                          <a className="Voices__article-link flex w-100 w-third-lg  db">
-                            <div className="Voices__article flex-grow-1 flex flex-column ma3 pa3">
-                              {item.fields.image && (
-                                <figure className="w-100 mb3 mb0-md mr0 mr3-md">
-                                  <img className="Voices__image db" src={`${item.fields.image.fields.file.url}?w=320&fm=jpg&q=70`} />
-                                </figure>
-                              )}
-                              <div className="w-100">
-                                <h5 className="Voices__type mt2">{item.fields.type[0]}</h5>
-                                <h3 className="Voices__title mt1">{item.fields.title}</h3>
-                                {item.fields.author && (
-                                  <h5 className="Voices__author mt2">{item.fields.author}</h5>
+            <div className="Voices__container-inner flex flex-wrap">
+              {Object.keys(articlesByTypes).map((type, index) => {
+                return (
+                  <div className="w-100 w-third-lg mt3" key={index}>
+                    <h3 className="body-header ml3">{type}s</h3>
+                      {articlesByTypes[type].map((item, index) => {
+                        return (
+                          <Link as={`/voices/${item.fields.slug}`} href="/voices/[slug]" key={index}>
+                            <a className={`Voices__article-link Voices__article-link-${item.fields.type[0]} flex w-100 db`}>
+                              <div className="Voices__article flex-grow-1 flex flex-column ma3 pa3">
+                                {item.fields.image && (
+                                  <figure className="w-100 mb3 mb0-md mr0 mr3-md">
+                                    <img className="Voices__image db" src={`${item.fields.image.fields.file.url}?w=320&fm=jpg&q=70`} />
+                                  </figure>
                                 )}
-                                {item.fields.tags && (
-                                  <ul className="Voices__tags mt2">
-                                    {item.fields.tags.map((item, index) => {
-                                      return (<li className="Voices__tag dib mr1" key={index}>{item}</li>)
-                                      })}
-                                  </ul>
-                                )}
+                                <div className="w-100">
+                                  <h5 className="Voices__type mt2">{item.fields.type[0]}</h5>
+                                  <h3 className="Voices__title mt1">{item.fields.title}</h3>
+                                  {item.fields.author && (
+                                    <h5 className="Voices__author mt2">{item.fields.author}</h5>
+                                  )}
+                                  {item.fields.tags && (
+                                    <ul className="Voices__tags mt2">
+                                      {item.fields.tags.map((item, index) => {
+                                        return (<li className="Voices__tag dib mr1" key={index}>{item}</li>)
+                                        })}
+                                    </ul>
+                                  )}
+                                </div>
                               </div>
-                            </div>
-                          </a>
-                        </Link>
-                      )
-                    })}
+                            </a>
+                          </Link>
+                        )
+                      })}
                   </div>
-                </div>
-              )
-            })}
+                )
+              })}
+            </div>
           </section>
         )}
       </article>

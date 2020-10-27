@@ -1,4 +1,20 @@
 .Voices {
+  &__container-inner {
+    &--featured {
+      .Voices__article-link {
+        &:first-child {
+          .Voices__article {
+            border-color: color('purple');
+          }
+        }
+        &:last-child {
+          .Voices__article {
+            border-color: color('orange');
+          }
+        }
+      }
+    }
+  }
   &__page-header {
     font-size: 3rem;
     line-height: 1;
@@ -25,10 +41,25 @@
   }
   &__article-link {
     border-bottom: none;
+    &-article {
+      .Voices__article {
+        border-color: color('blue');
+      }
+    }
+    &-media {
+      .Voices__article {
+        border-color: color('green');
+      }
+    }
+    &-interview {
+      .Voices__article {
+        border-color: color('red');
+      }
+    }
   }
   &__article {
     box-sizing: border-box;
-    border: calc(0.125vh + 0.125vw) solid color('red');
+    border: calc(0.25vh + 0.25vw) solid color('red');
     &-featured {
       .Voices__image {
         max-height: 24rem;
@@ -38,6 +69,9 @@
   }
   &__image {
     width: 100%;
+    max-height: 20rem;
+    object-fit: cover;
+    filter: grayscale(1);
   }
   &__title {
     color: color('black');
