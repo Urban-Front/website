@@ -49,6 +49,7 @@ export default function Header({preview = false, className = ''}) {
       <Nav
         toggleNav={burgerState}
         setToggle={setBurgerState}
+        preview={preview}
       />
       {burgerState && <ScrollLockComponent />}
     </>
