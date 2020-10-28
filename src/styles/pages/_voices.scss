@@ -4,7 +4,7 @@
       .Voices__article-link {
         &:first-child {
           .Voices__article {
-            border-color: color('purple');
+            border-color: color('dark-gray');
           }
         }
         &:last-child {
@@ -59,7 +59,7 @@
   }
   &__article {
     box-sizing: border-box;
-    border: calc(0.25vh + 0.25vw) solid color('red');
+    border: calc(0.325vh + 0.325vw) solid color('red');
     &-featured {
       .Voices__image {
         max-height: 24rem;
