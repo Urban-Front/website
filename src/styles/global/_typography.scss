@@ -35,6 +35,9 @@ body,
     border-top: 1px solid color('black');
     border-bottom: 1px solid color('black');
     width: 80%;
+    @media print {
+      width: 100%;
+    }
   }
 }
 .body-header {

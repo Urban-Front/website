@@ -14,7 +14,11 @@ export default function Voices(context) {
   return (
     <Layout preview={preview} className="Voices">
       <article className="Container mt4 mb7">
-        <img src={`${data.image.fields.file.url}?w=2048&fm=jpg&fl=progressive&q=70`} alt={data.image.fields.file.title} className="db mha" />
+        <section className="Voices__header-image-wrapper">
+          <div className="Voices__header-image-wrapper-inner">
+            <img src={`${data.image.fields.file.url}?w=2048&fm=jpg&fl=progressive&q=70`} alt={data.image.fields.file.title} className="Voices__header-image db mha" />
+          </div>
+        </section>
         <section className="Container Container__medium Voices__head pb4">
           <h3 className="Voices__header body-header mt6">{data.title}</h3>
           <div className="Voices__head-inner bt bb pv3 mt5">

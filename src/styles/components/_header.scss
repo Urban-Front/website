@@ -3,6 +3,9 @@
   top: 0;
   left: 0;
   width: 100%;
+  @media print {
+    display: none;
+  }
   &__logo {
     z-index: zIndex('high');
     width: 7.5rem;
