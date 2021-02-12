@@ -27,6 +27,12 @@
       transition-delay: 0s;
       opacity: 0;
     }
+    .Gallery__text-wrapper {
+      background-color: rgba(0, 0, 0, 0.85);
+      padding: 0.6rem;
+      overflow: hidden;
+      opacity: 1;
+    }
     .Gallery__title-wrapper,
     .Gallery__description,
     .Gallery__cta {
@@ -99,7 +105,6 @@
   }
   &__title {
     display: inline;
-    background-color: rgba(0, 0, 0, 0.85);
     padding: 0 0.2vw;
     font-size: 1.8125rem;
     line-height: 1.375;
@@ -112,7 +117,6 @@
   &__description {
     p {
       display: inline;
-      background-color: rgba(0, 0, 0, 0.85);
       line-height: 1.5;
       padding: 0 0.2vw;
     }
@@ -120,9 +124,12 @@
   &__cta {
     padding: 0 0.2vw;
     color: color('red');
-    background-color: color('white');
+    background-color: rgba(255, 255, 255, 0.9);
     border: none;
     text-decoration: underline;
+    font-weight: 900;
+    font-size: 1.125rem;
+    padding: 0.9rem 0.6rem;
   }
   &__image {
     z-index: 0;

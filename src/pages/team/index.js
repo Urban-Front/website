@@ -37,7 +37,6 @@ export default function Team(context) {
   const closeDetails = () => {
     setModalOpen(false);
   }
-  console.log(data);
   return (
     <Layout preview={preview} className="Team" headerClassName="">
       <article className="Container flex flex-wrap mv6">
@@ -52,7 +51,7 @@ export default function Team(context) {
                   openDetails(e, item.fields.name);
                 }}>
                 <figure className="Person__image">
-                  <img src={`${item.fields.image.fields.file.url}?fm=jpg&q=70`} />
+                  <img src={`${item.fields.image.fields.file.url}?fm=jpg&q=70&w=600&h=600&fit=fill`} />
                 </figure>
                 <h3 className="Person__name body-header mt3">{item.fields.name}</h3>
                 <p className="Person__description mt3">{item.fields.tagline}</p>

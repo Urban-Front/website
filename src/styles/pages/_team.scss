@@ -11,6 +11,7 @@
       padding-bottom: 100%;
       background-color: #333;
       overflow: hidden;
+      filter: grayscale(1);
     }
     &__description {
       color: color('red');
@@ -96,6 +97,7 @@
       bottom: 0;
       right: 0;
       z-index: -1;
+      filter: grayscale(1);
     }
   }
 }

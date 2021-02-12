@@ -13,19 +13,24 @@
     left: 0;
   }
   &__description {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 0.6rem;
     p {
       padding: 0 0.2vw;
       display: inline;
-      background-color: white;
     }
   }
   &__cta {
     a {
-      padding: 0 0.2vw;
       display: inline-block;
+      padding: 0 0.2vw;
+      color: color('red');
+      background-color: rgba(255, 255, 255, 0.9);
       border: none;
       text-decoration: underline;
-      background-color: white;
+      font-weight: 900;
+      font-size: 1.125rem;
+      padding: 0.9rem 0.6rem;
     }
   }
 }
