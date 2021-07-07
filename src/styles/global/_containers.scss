@@ -8,14 +8,26 @@
 	margin-right: auto;
   &__medium {
     max-width: 48rem;
+    @media print {
+      width: 100%;
+      max-width: 100%;
+    }
   }
   &__thin {
     max-width: 38rem;
+    @media print {
+      width: 100%;
+      max-width: 100%;
+    }
   }
   &__fluid {
     max-width: 100%;
   }
   &__auto {
     width: auto;
+  }
+  @media print {
+    width: 100%;
+    max-width: 100%;
   }
 }

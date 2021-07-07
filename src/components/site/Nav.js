@@ -29,11 +29,11 @@ export default function Nav({preview = false, toggleNav, setToggle}) {
               <a title="Team" className="Nav__nav-link">Team</a>
             </Link>
           </li>
-          {/* <li className="Nav__nav-item db w-100"> */}
-          {/*   <Link href={`/voices${preview ? '?preview=true' : ''}`}> */}
-          {/*     <a title="Voices" className="Nav__nav-link">Voices</a> */}
-          {/*   </Link> */}
-          {/* </li> */}
+          <li className="Nav__nav-item db w-100">
+            <Link href={`/voices${preview ? '?preview=true' : ''}`}>
+              <a title="Voices" className="Nav__nav-link">Voices</a>
+            </Link>
+          </li>
           {/* <li className="Nav__nav-item db w-100"> */}
           {/*   <Link href={`/events${preview ? '?preview=true' : ''}`}> */}
           {/*     <a title="Events" className="Nav__nav-link">Events</a> */}

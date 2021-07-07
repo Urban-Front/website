@@ -29,6 +29,14 @@ export async function getHomeData(preview) {
   return entries.items[0]
 }
 
+export async function getVoicesPage(preview) {
+  const entries = await getClient(preview).getEntries({
+    'sys.contentType.sys.id[in]': 'voicesPage',
+    include: 3
+  })
+  return entries.items[0]
+}
+
 export async function getArticles(preview) {
   const entries = await getClient(preview).getEntries({
     'sys.contentType.sys.id[in]': 'article',

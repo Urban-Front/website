@@ -3,6 +3,9 @@
   &__overlay {
     display: none;
   }
+  @media print {
+    display: none;
+  }
 }
 .page-transition-enter-done {
   .Nav {
